@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- input tag : 화면에서 서버로 데이터를 전송할 때 사용 -->
+    <!-- 여러가지 속성 값이 다양해서 여러가지 기능들을 사용 가능 -->
+    <!-- form 태그와 같이 사용하여 서버로 전송 -->
+    <!-- input type = "타입" name: 변수명, value: 값, id: 태그 구분값 -->
+
+    <input type="text" name="id" id="a" placeholder="ID를 입력하세요.">
+    <input type="password" name="password" id="a" placeholder="패스워드를 입력하세요.">
+
+
+    <input type="button" value="button">
+    <button>이것도 버튼</button>
+
+    <hr>
+
+    <!-- form 태그 : tag 안의 정보를 서버로 전송 -->
+    <!-- action = "주소"  
+        데이터를 전송하는 방식(method) 2가지
+        get : 기본, 주소 뒤에 ?붙여서 정보를 보내는 방식
+        post : 반드시 입력, 데이터를 숨겨서 보내는 방식(내부 객체의 body에 숨겨서 전송)
+        name = "변수명", value ="값"
+        => action?변수명=값&변수명=값...
+    -->
+        
+    <form action="" method="get">
+        <input type="text" name="id" id="a" placeholder="ID를 입력하세요.">
+        <input type="password" name="password" id="a" placeholder="패스워드를 입력하세요.">
+        <input type="text" name="age" id="age" placeholder="나이를 입력하세요.">
+        <br/>
+        <button type="button">button</button>
+        <button type="submit">submit</button>
+        <button type="reset">reset</button>
+    </form>
+
+    <hr />
+
+    <!-- type="checkbox" : 다중선택을 할 경우 사용 -->
+    <input type="checkbox" name="" id=""> 사과
+    <input type="checkbox" name="" id=""> 오렌지
+    <input type="checkbox" name="" id=""> 바나나
+
+    <br/>
+    <hr/>
+
+    <form action="">
+        <input type="checkbox" name="fruit" value="apple" id="apple"> 
+        <label for="apple">apple</label>
+
+        <input type="checkbox" name="fruit" value="orange" id="orange"> 
+        <label for="orange">orange</label>
+
+        <input type="checkbox" name="fruit" value="banana" id="banana"> 
+        <label for="banana">banana</label>
+        <button type="submit">submit</button>
+    </form>
+
+    <!-- lable : 다른 태그의 제목 역할을 함 
+        for = "연결태그id" 
+    -->
+
+    <!-- type="radio" : name이 같은 값 중 하나만 선택 가능 -->
+    <form action="">
+        <label for="apple2">
+            <input type="radio" name="fruit2" id="apple2" value="apple"> apple
+        </label>
+
+        <label for="orange2">
+            <input type="radio" name="fruit2" id="orange2" value="orange"> orange
+        </label>
+
+        <label for="banana2">
+            <input type="radio" name="fruit2" id="banana2" value="banana"> banana
+        </label>
+    </form>
+
+</body>
+</html>
