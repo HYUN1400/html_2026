@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            font-style: italic;
+            font-weight: bold;
+            letter-spacing: -0.04em;
+        }
+
+        .ptag {
+            color: blue;
+        }
+
+        #p {
+            color:aquamarine
+        }
+
+        p:hover{
+            cursor: pointer;
+            border: 1px solid;
+        }
+
+        body > p {
+            /* 부모자식 관계 */
+        }
+
+        html p {
+            /* 조상 자식 관계 */
+        }
+        p#p {
+            /* p 자식 중 id가 p인 것  */
+        }
+    </style>
+</head>
+<body>
+    <p class="ptag">HELLO, WORLD</p>
+    <p class="ptag" id="p">HELLO, WORLD</p>
+    <p>HELLO, WORLD</p>
+    <p>HELLO, WORLD</p>
+    <p>HELLO, WORLD</p>
+
+    <!-- 
+        selector(선택자)
+        - 요소 (태그요소: 엘리먼트 Element)를 선택하게 하는 이름
+        - id 선택자 => #id명
+        - class 선택자 => .class명 (같은 태그명, 같은 스타일의 영향을 받음)
+        - tagName 선택자 : 태그명 (같은 태그명, 같은 스타일의 영향을 받음)
+        - 가상 클래스 선택: 가상클래스명
+            - 어떤 조건이나 상황에서 스타일을 적용하도록 만드는 선택자
+            - 앞에 대상의 선택지가 나오고, 뒤에 가상클래스의 선택자가 나옴
+            - :hover => 마우스 오버 시
+            - :focus => 포커스 시
+            - :nth-child(a) / :nth-of-type(a) => a번째에 해당하는 요소 
+                1: 첫번째 요소
+                even: 짝수 요소
+                odd: 홀수 요소
+                2n / 3n: 배수요소
+                3n-1 : 3의 배수에서 1개 뺀 요소 (연산도 가능)
+    -->
+
+    <!-- 
+        선택자 조합
+        - 여러 선택자를 이용하여 요소를 선택
+        - 자식관계: >
+          부모선택자 > 자식선택자 (table > tbody > tr > td)
+        - 자손관계 : 공백
+          조상선택자 자손선택자 (table td)
+          조상선택자는 부모 포함
+        - 형제관계 : 선택자를 붙여서 나열
+          선택자1선택자2
+
+        선택자 우선순위
+        - 하나의 엘리먼트에 여러 선택자가 겹쳐져 있는 상황일 경우
+        - 아이디 선택자 > 클래스 > 태그
+        - 우선순위가 같은 경우 (클래스 선택자가 중복일 경우) 아래에 있는 것을 우선시
+    -->
+</body>
+</html>

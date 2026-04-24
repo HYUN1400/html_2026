@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        a tag
+        => 다른 페이지로 이동하는 태그
+
+        - href = " " : 이동할 url 입력
+            값이 없다면 : 새로고침
+            속성값에 http:// : url로 인식, 없으면 파일로 인식
+            tel : 전화번호로 연결, 모바일에서 주로 사용
+            mailto : 이메일로 연결
+
+        - target 속성
+            _self : 기본값, 현재 화면에서 연결
+            _black : 새탭에서 연결
+            _parent : 부모창에서 연결
+            _top : 최고조상에서 연결
+
+        - download 속성
+            파일을 다운로드 할 경우
+            href 속성에 파일경로가 있고, download 속성이 추가될 경우 해당 파일을 다운로드
+    -->
+    <a href=""> (새로고침 _self) </a>
+    <br>
+    <a href="http://naver.com" target="_blank"> naver로 이동 (새탭) </a>
+    <br>
+    <a href="01_input02.html" target="_blank"> 01_input02 </a>
+    <br>
+    <a href="01_input02.html" target="_blank" download=""> 01_input02 (DOWNLOAD) </a>
+    <br>
+    <a href=""></a>
+</body>
+</html>

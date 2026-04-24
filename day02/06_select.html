@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        select : 제시된 항목 중 하나를 선택하는 태그
+        콤보박스, 드롭다운박스 형태로 구성
+        option 태그를 같이 넣어서 목록을 구성
+        select name = "변수명"
+        option value = "값"
+        option 태그에 value가 없다면 공백으로 전송
+        selected : 기본 선택값을 결정
+        disabled : 비활성화
+    -->
+    <form action="">
+        <label for="cp">통신사 선택</label><br>
+        <select name="company" id="cp">
+            <option value="">선택하세요</option>
+            <option value="SKT" selected>SKT</option>
+            <option value="KT">KT</option>
+            <option value="LG">LG</option>
+            <option value="알뜰폰">알뜰폰</option>
+            <option value="etc">기타</option>
+        </select>
+        <button type="submit"> 제출 </button>
+    </form>
+    <br>
+
+    <!-- 성별 선택 select 생성 -->
+     <hr>
+
+    <form action="">
+        <label for="gender">성별 선택</label><br>
+        <select name="gender" id="gender">
+            <option value="">선택하세요</option>
+            <option value="female">여성</option>
+            <option value="male">남성</option>
+            <option value="genderless">없음</option>
+        </select>
+        <button type="submit">제출</button>
+    </form>
+</body>
+</html>

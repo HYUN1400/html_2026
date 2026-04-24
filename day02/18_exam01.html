@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap:10px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+            color: white;
+        }
+
+        .naver {
+            background-color: rgb(13, 217, 13);
+            border-radius: 10px;
+            padding: 5px 10px;
+            width: 100px;
+            text-align: center;
+        }
+
+        .naver:hover{
+            cursor: pointer;
+            background-color: rgb(12, 172, 12);
+        }
+
+        .google {
+            background-color: rgb(255, 217, 4);
+
+            border-radius: 10px;
+            padding: 5px 10px;
+            width: 100px;
+            text-align: center;
+        }
+
+        .google:hover{
+            cursor: pointer;
+            background-color: rgb(211, 180, 4);
+        }
+
+        .youtube {
+            background-color: rgb(205, 9, 9);
+            border-radius: 10px;
+            padding: 5px 10px;
+            width: 100px;
+            text-align: center;
+        }
+
+        .youtube:hover {
+            cursor: pointer;
+            background-color: rgb(142, 7, 7);
+        }
+
+        li {
+            font-size: 20px;
+        }
+
+        li:nth-child(even) {
+            color: red;
+        }
+
+        li:nth-child(1), li:nth-child(10) {
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 
+        div 3개
+        naver, google, youtube 사이트로 연결되게 하고
+        각자 글자 색도 다르게 만들어 추가
+    -->
+    <div class="container">
+        <div class="naver">
+            <a href="http://naver.com" target="_blank">NAVER</a>
+        </div>
+        <div class="google">
+            <a href="http://google.com" target="_blank">GOOGLE</a>
+        </div>
+        <div class="youtube">
+            <a href="http://youtube.com" target="_blank">YOUTUBE</a>
+        </div>
+
+        <ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+        </ol>
+    </div>
+</body>
+</html>

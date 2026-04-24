@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            margin-top: 10px;
+            border-radius: 7px;
+            border: none;
+            background-color: rgb(196, 223, 231);
+            height: 20px;
+        }
+
+        button {
+            display: block;
+            margin: auto;
+            border: none;
+            border-radius: 7px;
+            width: 100px;
+            height: 30px;
+            background-color: rgb(255, 241, 40);
+        }
+    </style>
+</head>
+<body>
+    <!-- 회원가입 폼 -->
+    <h1>회원가입</h1>
+    <img style="max-width: 100%;" src="https://images.microcms-assets.io/assets/f8dd2ab21a4a437d91612ae2f8bd303f/fb1e57819825414db2c95a8c2c6d4dc6/puppet_sunsun.jpg?fit=max&w=3840" alt="">
+    <hr/>
+
+    <form>
+        아이디: <input type="text" placeholder="ID를 입력하세요." name="member" id="id">
+        <br/>
+        비밀번호: <input type="password" placeholder="패스워드를 입력하세요." name="member" id="password">
+        <br/>
+        비밀번호 확인: <input type="password" placeholder="패스워드를 입력하세요." name="member" id="passwordCheck">
+        <br/>
+        이메일: <input type="email" name="member" id="email" placeholder="이메일을 입력하세요.">
+        <br/>
+        성별: 
+        <label for="male">
+            <input type="radio" name="gender" id="male"> 남성
+        </label>
+
+        <label for="female">
+            <input type="radio" name="gender" id="female"> 여성
+        </label>
+
+        <label for="else">
+            <input type="radio" name="gender" id="else"> 기타
+        </label>
+        
+        <br>
+        전화번호: <input type="text" value="010" id=""> - <input type="text" name="" id=""> - <input type="text" name="" id="">
+
+        <br>
+        <button type="submit">회원가입</button>
+        
+    </form>
+</body>
+</html>
