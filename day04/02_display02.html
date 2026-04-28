@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display02</title>
+    <style>
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul > li {
+            display: inline;
+            font-size: 20px;
+
+            margin: 10px 20px;
+        }
+
+        ul > li::after {
+            content: " | ";
+            margin-left: 20px;
+            position: absolute;
+
+        }
+
+        ul > li:last-child::after{
+            content: "";
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>외투</li>
+        <li>상의</li>
+        <li>하의</li>
+        <li>악세서리</li>
+        <li>문의</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root {
+    --main-color: rgb(245,245,245);
+    --main-font: "Source Code Pro", monospace;
+    --point-color: #c8ff00;
+    --shadow: 2px 2px 8px #cfcfcf, -2px -2px 8px #ffffff;
+}
+
+        body{
+            font-family: var(--main-font);
+            background: var(--main-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+
+        .header {
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 130px;
+            margin: 5px auto;
+            padding: 30px;
+            position: relative;
+            background-color: var(--main-color);
+            z-index: 999;
+}
+
+.hd-content img {
+    width: 40%;
+    min-width: 100px;
+}
+
+        .container{
+            width: 600px;
+            height: auto;
+            box-sizing: border-box;
+            padding: 20px 0;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--main-color);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-title{
+            font-size: 1.28em;
+            color: black;
+            font-weight: 700;
+            font-style: italic;
+            margin: 0px 0;
+            
+        }
+
+        .form{
+            width: 80%;
+        }
+
+        .e-mail{
+            font-size: 15px;
+            color: black;
+            font-weight: 600;
+            margin: 5px 0;
+            margin-bottom: 30px;
+        }
+
+        .e-mail input{
+            font-family: var(--main-font);
+            width: 100%;
+            height: 30px;
+            background: white;
+            font-size: 12px;
+            border: 1px dashed black;
+            border-radius: 5px;
+            margin-top: 14px;
+            padding: 0 5px 0 10px;
+        }
+
+        .message{
+            font-size: 15px;
+            color: black;
+            font-weight: 600;
+            margin: 5px 0;
+            margin-bottom: 16px;
+        }
+
+        .message textarea{
+           font-family: var(--main-font);
+            width: 100%;
+            height: 130px;
+            background: white;
+            font-size: 12px;
+            border: 1px dashed black;
+            border-radius: 5px;
+            margin-top: 14px;
+            padding: 10px 5px 0 10px;
+            resize: none;
+        }
+        
+        .e-mail input:focus{
+            border-color: var(--point-color);
+            outline: none;
+        }
+
+        .message textarea:focus{
+            border-color: var(--point-color);
+            outline: none;
+        }
+
+        button{
+            font-family: var(--main-font);
+            font-size: 14px;
+            background: var(--main-color);
+            color: black;
+            font-weight: 600;
+            width: 30%;
+            height: 45px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            box-shadow: var(--shadow);
+        }
+
+        button:hover{
+            background-color: var(--point-color);
+        }

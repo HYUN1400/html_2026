@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <!-- 
+        text : 글자 상태
+        - text-indent : 들여쓰기 (문장에서 첫 문단의 첫줄만 들여쓰기)
+        - text-align : (가로정렬)left, right, center, justify
+    -->
+    <!-- 
+        css 단위
+        px : pixel
+        % : 부모 기준 %
+        em : 배수 (부모기준)
+        rem : 배수 (문서값 기준)
+        cm / mm / in(1in = 96px)
+        pt: 1pt= 1/72in
+        pc: 1pc = 12pt
+        deg: 각도
+    -->
+    <!-- 
+        text-overflow : 텍스트가 범위를 넘어가는 경우 (...) ellipsis
+        with-space : 글자가 넘어가면 어떻게 처리할 것인지
+            - nowrap : 한줄 처리
+            - wrap : 줄바꿈 처리 
+        overflow : 요소가 넘어가면 어떻게 처리할 것인지
+            - hidden : 숨김
+            - scroll : 스크롤 생성
+            - auto : 스크롤 바 자동 생성
+    -->
+    <style>
+        a {
+            text-decoration: none;
+        }
+        p {
+            text-indent: 15px;
+            text-align: center;
+        }
+        .line {
+            width: 400px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <a href=""> 밑줄 자동 생성</a>
+    <p class="line">
+        안녕하세요? 안녕히 가세요.
+        안녕하세요? 안녕히 가세요.
+        안녕하세요? 안녕히 가세요.
+        안녕하세요? 안녕히 가세요.
+        안녕하세요? 안녕히 가세요.
+        안녕하세요? 안녕히 가세요.
+        안녕하세요? 안녕히 가세요.
+    </p>
+    <p>
+        안녕하세요? 안녕히 가세요.
+        안녕하세요? 안녕히 가세요.
+        안녕하세요? 안녕히 가세요.
+        안녕하세요? 안녕히 가세요.
+        안녕하세요? 안녕히 가세요.
+        안녕하세요? 안녕히 가세요.
+        안녕하세요? 안녕히 가세요.
+    </p>
+</body>
+</html>

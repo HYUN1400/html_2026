@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exam01</title>
+    <style>
+        .container {
+            width: 100%;
+            display: flex;
+            background-color: rgb(243, 243, 243);
+            gap: 5px;
+        }
+
+        .menu{
+            box-shadow: 2px 2px 8px #d7d7d7, -2px -2px 8px #ffffff;
+            border: 1px solid rgb(221, 221, 221);
+            border-radius: 10px;
+            width: calc(100%/4);
+            height: 50px;
+            text-align: center;
+            margin-left: -1px;
+        }
+
+        a {
+            line-height: 50px;
+            text-decoration: none;
+            color: rgb(105, 105, 105);
+        }
+
+        .menu:hover {
+            cursor: pointer;
+            box-shadow: inset 3px 5px 5px rgba(235, 235, 235, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="menu"><a href="">메뉴 1</a></div>
+        <div class="menu"><a href="">메뉴 2</a></div>
+        <div class="menu"><a href="">메뉴 3</a></div>
+        <div class="menu"><a href="">메뉴 4</a></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selector02</title>
+    <!-- 
+        속성 선택자 : 태그가 가지고 있는 속성을 이용한 선택자
+        input 처럼 타입이 여러 종류인 값 중 원하는 타입만 선택할 때 사용
+        태그명 [속성=값]
+    -->
+    <style>
+        * {
+            letter-spacing: -0.05em;
+            margin: 0px;
+        }
+
+        input {
+            font-size: large;
+            border-radius: 8px;
+        }
+
+        input[type=text] {
+            font-weight: bold;
+            background-color: skyblue;
+        }
+        
+        input[type=password]{
+            font-style: italic;
+            background-color: #f6f6f6;
+        }
+
+        button {
+            border-radius: 8px;
+        }
+
+        button[type=reset]{
+            border: 1px solid rgb(188,5,5);
+            background-color: rgb(188, 5, 5);
+            color: bisque;
+        }
+
+        input::-webkit-input-placeholder {
+            color: rgb(146, 6, 6);
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div>
+            <label for="id">user ID</label>
+            <input type="text" name="id" id="id" placeholder="8자 이상" required>
+        </div>
+        <div>
+            <label for="pw">User password</label>
+            <input type="password" id="pw" name="pw" placeholder="8자 이상" required>
+        </div>
+        <div>
+            <label for="pin">User Pin</label>
+            <input type="password" id="pin" name="pin" placeholder="인증번호" required>
+        </div>
+        <div>
+            <button type="button">일반 버튼</button>
+            <button type="submit">로그인</button>
+            <button type="reset">취소</button>
+        </div>
+    </form>
+</body>
+</html>

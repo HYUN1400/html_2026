@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cursor</title>
+    <!-- 
+        cursor : 마우스 포인터 모양을 주는 속성
+        - pointer : 링크 커서
+        - 
+    -->
+    <style>
+        @font-face {
+            font-family: RobotoCondensed-Bold;
+            src: url(../resource/font/RobotoCondensed-Bold.ttf);
+        }
+
+        @font-face {
+            font-family: 'JejuStoneWall';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+            font-weight: normal;
+            font-display: swap;
+        }
+
+        body {
+            display:flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .naver {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 40px;
+            border: 5px solid rgb(11, 210, 11);
+            border-radius: 25px;
+        }
+
+        .naver > a{
+            font-family: 'JejuStoneWall', Courier, monospace;
+            font-size: 25px;
+            text-decoration: none;
+            color: rgb(11, 210, 11);
+        }
+
+        .normal {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 40px;
+            border: 5px solid rgb(11, 210, 11);
+            border-radius: 25px;
+
+            font-family: 'JejuStoneWall', Courier, monospace;
+            font-size: 25px;
+            color: rgb(11, 210, 11);
+
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="naver">
+        <a href="http://naver.com" target="_blank">NAVER</a>
+    </div>
+    <div class="normal" onclick="window.open('http://naver.com')">NAVER</div>
+</body>
+</html>

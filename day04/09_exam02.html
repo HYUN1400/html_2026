@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exam01</title>
+    <style>
+        body {
+            background-image: url(../resource/galaxy.jpg);
+            background-size: cover;
+        }
+
+        .container {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            height: 700px;
+        }
+
+        .menu-box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 15%;
+            height: 100%;
+        }
+
+        .menu {
+            width: 80%;
+            background-color: black;
+            cursor: pointer;
+            border: 1px solid rgb(144, 187, 216);
+            height: 30px;
+            text-align: center;
+            margin-top: -1px;
+        }
+
+        .menu:hover{
+            border-radius: 15px 0px 0px 15px;
+            width:100%;
+            background-color: rgb(144, 187, 216);
+            transition: 0.3s;
+        }
+
+        .menu > a {
+            text-decoration: none;
+            line-height: 30px;
+            color: rgb(255, 255, 255);
+        }
+
+        .image-box{
+            width: 85%;
+            height: 100%px;
+        }
+
+        img {
+            border: 1px solid rgb(144, 187, 216);
+            box-shadow: -3px -5px 10px rgba(144, 187, 216, 0.5);;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        img:hover {
+            filter: grayscale();
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="menu-box">
+            <div class="menu"><a href="">메뉴①</a></div>
+            <div class="menu"><a href="">메뉴②</a></div>
+            <div class="menu"><a href="">메뉴③</a></div>
+            <div class="menu"><a href="">메뉴④</a></div>
+        </div>
+        <div class="image-box">
+            <img src="../resource/nasa.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>

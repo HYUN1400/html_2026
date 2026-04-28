@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float</title>
+    <!-- 
+        float 속성: 요소를 띄우는 속성
+        - 요소를 정상적인 문서 흐름에서 벗어나 왼쪽이나 오른쪽으로 띄우게 하여
+          텍스트나 다른 일나인 요소가 해당 요소 주위를 감싸도록 함.
+        - float 속성을 사용 시 자식 요소의 높이를 부모가 인지 못함.
+    -->
+    <style>
+        .p-box {
+            background-color: beige;
+        }
+        .p-box::after{
+            content: "";
+            display: block;
+            /* 부모 박스 양쪽에 float 속성을 지우는 역할 */
+            clear: both;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="p-box">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

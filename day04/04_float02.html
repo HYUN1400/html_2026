@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float02</title>
+    <!-- 
+        p-box : 500*500
+        box : p-box 1/3 
+    -->
+    <style>
+        .p-box {
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+            background-color: lightgray; /* 부모 영역 확인용 */
+        }
+
+        .box {
+            float:left;
+            width: calc(100% / 3);
+            height: 100%;
+            background-color: antiquewhite;
+        }
+
+        .box:nth-child(2){
+            background-color: aquamarine;
+        }
+
+        .box:last-child{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div class="p-box">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

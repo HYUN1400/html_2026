@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>border</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            margin-top: -2px;
+            background-color: rgb(240, 240, 240);
+            text-align: center;
+            line-height: 100px;
+            border: 2px solid black;
+            box-shadow: 5px 5px 10px rgb(203, 203, 203);
+        }
+
+        .box:nth-child(1) {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .box:nth-child(3) {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">HELLO</div>
+    <div class="box">HELLO</div>
+    <div class="box">HELLO</div>
+</body>
+</html>

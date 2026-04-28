@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root {
+    --main-color: rgb(245,245,245);
+    --main-font: "Source Code Pro", monospace;
+    --point-color: #c8ff00;
+}
+
+body {
+    background-color: var(--main-color);
+    margin:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+div.line {
+    border-top: 1px solid black;
+    width: 95%;
+    margin: 5px auto;
+}
+
+div.line-vertical {
+    border-left: 1px solid black;
+    height: auto;
+}
+
+.main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width:100%;
+    max-width: 1200px;
+    padding: 50px;
+    background: var(--main-color);
+}
+
+.header {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 160px;
+    margin: 5px auto;
+    padding: 30px;
+    position: sticky;
+    top: 0px;
+    background-color: var(--main-color);
+    z-index: 999;
+}
+
+.hd-content img {
+    width: 40%;
+    min-width: 100px;
+}
+
+
+button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgb(0, 0, 0);
+    border: none;
+    outline: none;
+    margin-right: 10px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    cursor:pointer;
+    background: var(--point-color);
+}
+
+.info {
+    box-sizing: border-box;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin: 5px 5px 30px 5px;
+    padding: 30px;
+    overflow: hidden;
+}
+
+.info-item-first {
+    font-size: 30px;
+    font-family: var(--main-font);
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 15px;
+    margin-bottom: 30px;
+}
+
+.info-item-second {
+    font-size: 18px;
+    font-family: var(--main-font);
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.info-item-third {
+    font-size: 14px;
+    font-family: var(--main-font);
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.exp {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+    height: auto;
+    margin: 5px auto;
+    padding: 30px;
+}
+
+.exp-box-first {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 35%;
+    overflow:hidden;
+}
+
+
+.exp-bf-item-img {
+    width: 95%;
+    min-height: 300px;
+    border: 1px dashed black;
+    margin-bottom: 30px;
+}
+
+.exp-bf-item {
+    font-family: var(--main-font);
+    font-weight: 400;
+    font-size: 13px;
+    width: 85%;
+    background-color: var(--main-color);
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 8px #cfcfcf, -2px -2px 8px #ffffff;
+    transition: background 0.3s;
+}
+
+.exp-bf-item:hover {
+    background-color: #dbdbdb;
+    box-shadow: inset 2px 2px 8px #bbbbbb;
+    cursor: pointer;
+}
+
+.exp-box-second {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-left: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.exp-bs-item {
+    font-family: var(--main-font);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 2px 8px #cfcfcf, -2px -2px 8px #ffffff;
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    transition: 0.5s;
+}
+
+.exp-bs-item .bi-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 110px;
+    width: 110px;
+    height: 110px;
+    min-height: 110px;
+    border: 1px dashed black;
+    border-radius: 50%;
+    margin: 10px 40px 0 30px;
+    overflow: hidden;
+    background: var(--main-color);
+}
+
+
+.exp-bs-item .bi-img > img {
+    width:50%;
+    height: 50%;
+    border-radius: 50%;
+}
+
+.exp-bs-item:hover {
+    rotate:2deg;
+}
+
+.bi-ex {
+    box-sizing: border-box;
+    padding-bottom: 30px;
+    margin: 10px 0;
+    width: auto;
+    height:auto;
+}
+
+.bi-ex-skill {
+    display:flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.skill-bar {
+    width: 200px;
+    height: 8px;
+    background: var(--main-color);
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+
+.skill-bar .progress-1 {
+    width: 70%; 
+    height: 8px;
+    padding: 0;
+    text-align: center;
+    background-color: var(--point-color);
+    border-radius: 5px;
+}
+
+.skill-bar .progress-2 {
+    width: 63%; 
+    height: 8px;
+    padding: 0;
+    text-align: center;
+    background-color: var(--point-color);
+    border-radius: 5px;
+}
+
+.skill-bar .progress-3 {
+    width: 85%; 
+    height: 8px;
+    padding: 0;
+    text-align: center;
+    background-color: var(--point-color);
+    border-radius: 5px;
+}
+
+.skill-bar .progress-4 {
+    width: 10%; 
+    height: 8px;
+    padding: 0;
+    text-align: center;
+    background-color: var(--point-color);
+    border-radius: 5px;
+}
+
+.skill-bar .progress-5 {
+    width: 0%; 
+    height: 8px;
+    padding: 0;
+    text-align: center;
+    background-color: var(--point-color);
+    border-radius: 5px;
+}
+
+.skill-ex {
+    font-size: 13px;
+    margin: 0 10px 0 0;
+}
+
+.portfolio {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.pf-text {
+    font-family: var(--main-font);
+    border: 1px dashed black;
+    padding: 8px;
+}
+
+.linked {
+    background: #000;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.linked:hover {
+    cursor: pointer;
+    background: #fff;
+    color: black;
+}
+
+.point {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+}
+
+.point:hover {
+    cursor: pointer;
+    color: black;
+}
+
+@media (max-width: 935px) {
+    .main {
+        padding: 20px;
+    }
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+    }
+    .hd-content img {
+        width: 80%;
+    }
+    .hd-btn {
+        margin-top: 20px;
+    }
+    .info {
+        height: auto;
+        padding: 20px;
+    }
+    .exp {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+    .exp-box-first,
+    .exp-box-second {
+        width: 100%;
+        margin-left: 0;
+    }
+    .line-vertical {
+        display: none;
+    }
+    .exp-bs-item {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+        padding: 20px 10px;
+    }
+    .exp-bs-item .bi-img {
+        margin: 0 auto 20px auto;
+    }
+    .bi-ex {
+        padding: 0;
+    }
+    .bi-ex-skill {
+        justify-content: center;
+    }
+    .portfolio {
+        justify-content: center;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .main {
+        padding: 10px;
+    }
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+    }
+    .hd-content img {
+        width: 80%;
+    }
+    .hd-btn {
+        margin-top: 20px;
+    }
+    .info {
+        height: auto;
+        padding: 20px;
+    }
+    .exp {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+    .exp-box-first,
+    .exp-box-second {
+        width: 100%;
+        margin-left: 0;
+    }
+    .line-vertical {
+        display: none;
+    }
+    .exp-bs-item {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+        padding: 10px;
+        overflow:hidden;
+    }
+    .exp-bs-item .bi-img {
+        margin: 0 auto 20px auto;
+        width: 60px;
+        height: 60px;
+        min-height: 60px;
+        min-width:60px;
+        margin: 0 auto 10px auto;
+    }
+    .bi-ex {
+        padding: 0;
+        width:100%;
+    }
+    .bi-ex-skill {
+        justify-content: center;
+    }
+
+    .bi-ex > h3 {
+        font-size: 13px;
+    }
+
+    .portfolio {
+        justify-content: center;
+        margin-top: 20px;
+    }
+}

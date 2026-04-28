@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color</title>
+    <!-- 
+        색상 관련 속성
+        - color : 글자색
+        - background-color : 배경색
+        - border-color: 테두리 색
+
+        색상 지정 방법
+        - 이미 지정된 색상, 이름을 지정하는 방법(red, blue, yellow ...)
+        - 직접 rgba로 지정(rgba(255, 245, 245) ... 끝부분은 불투명도)
+        - 색상 코드로 지정 (#03c75a ...)
+        - gradient 조합 (cssgradient.io/) linear-gradient(90deg, rgba(42,123,155,1) 0%, rgba(81,233,253) 30% ...)
+    
+        border-color : 선 색상
+        선 두께, 선 모양, 색 한세트로 설정
+        border: 두께 모양 색
+        border: 선 두께
+        border-style : 모양
+        border-color :  선색상
+        ex) border: 1px solid red;   
+    -->
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 300px;
+            height: 100px;
+        }
+        .color {
+            color:rgb(148, 132, 228);
+        }
+        .bg-color {
+            background-color:rgb(239, 222, 201);
+        }
+        .b-color {
+            border: 1px solid rgb(19, 129, 176);
+        }
+
+        .box {
+            border-radius: 10px;
+            border: 2px dashed rgb(115, 161, 184);
+            background-color: rgb(198, 227, 233);
+            color:rgb(255, 255, 255);
+        }
+        
+        .button {
+            border: none;
+            padding: 5px;
+            border-radius: 10px;
+            background-color: rgb(205, 205, 205);
+            color:white
+        }
+
+        .button:hover {
+            cursor: pointer;
+            background-color: rgb(188, 188, 188);
+        }
+    </style>
+</head>
+<body>
+    <div class="color">글자색</div>
+    <div class="bg-color">배경색</div>
+    <div class="b-color">테두리색</div>
+    <div class="box">test</div>
+    <button class="button" type="button" onclick="buttonOnClickEvent()">TEST</button>
+</body>
+
+<script>
+    const buttonOnClickEvent = () => {
+        const button = document.querySelector(".button")
+        const box = document.querySelector(".box")
+
+        button.addEventListener("click", () => {
+            box.style.backgroundColor = "tomato";
+        });
+    }
+</script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box</title>
+    <!-- 
+        box-sizing : box의 크기를 지정하는 속성
+        width: 컨텐츠의 가로 길이
+        box-sizing에 따라 width는 컨텐츠의 가로 길이 / 박스 전체의 가로길이 로 정해진다
+
+        - border-box : width = 컨텐츠의 가로 + 패딩 + 테두리
+        - content-box : width = 컨텐츠의 가로 (기본)
+
+        padding : border 안쪽의 여백
+        margin : border 바깥쪽의 여백
+
+        margin : top bottom left right => 값 하나씩 주면 시계방향
+    -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .box1 {
+            box-sizing: border-box;
+            background-color: pink;
+        }
+
+        .box2 {
+            box-sizing: content-box;
+            background-color: greenyellow;
+        }
+        .box3 {
+            margin-top: 20px;
+        }
+        .naver {
+            font-family: "Archivo Black", sans-serif;
+            font-size: 20px; 
+            width: 380px;
+            height: 60px;
+            background-color: rgb(32, 186, 12);
+            color: white;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .naver:hover {
+            cursor: pointer;
+            background-color:rgb(25, 178, 12);
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box3">
+        <button class="naver" onclick="window.open('https://naver.com')">
+            NAVER
+        </button>
+    </div>
+</body>
+</html>

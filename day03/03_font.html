@@ -1,0 +1,43 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>font</title>
+    <!-- 
+        font 지정
+        글꼴 / 크기 / 스타일 / 굵기
+        -font-family : 브라우저마다 지원하는 폰트가 다르고, 언어마다 달라서 폰트 묶음으로 설정
+            - 지정하려고 하는 폰트를 , 로 나열
+            - 한글 폰트인 경우 한글 이름과, 영문 이름 같이 사용
+            - 마지막 폰트는 기본형으로 지정 (serif)
+        -font-size : 글자 크기
+        -font-style : italic, bold ...
+        -font-weight : 글자 굵기
+        -font : 속성을 한번에 지정하는 경우
+        -font[style | weight] size family
+
+        <head> 에 link 임베디드 > CDN방식
+
+    -->
+    <style>
+        /* 다운받은 폰트를 사용 */
+        @font-face {
+            font-family: RobotoCondensed-Bold;
+            src: url(../resource/font/RobotoCondensed-Bold.ttf);
+        }
+        .font {
+            font-family: 'RobotoCondensed-Bold', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="font">Roboto Condensed FONT</div>
+</body>
+</html>
