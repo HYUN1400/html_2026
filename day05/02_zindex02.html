@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zindex02</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            
+            width: 300px;
+            height: 500px;
+            border: 1px solid black;
+            padding: 10px;
+
+            background-color: rgb(243, 216, 190);
+        }
+
+        .box1 {
+            height: 15%;
+            width: 100%;
+            border: 2px solid black;
+            background-color: white;
+            text-align: center;
+        }
+
+        .box2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 70%;
+            width: 100%;
+            border: 2px solid rgb(0, 0, 0);
+            background-color: black;
+        }
+
+        .box2 > .square {
+            width: 100px;
+            height: 100px;
+            position:absolute;
+            border: 1px solid rgb(152, 16, 98);
+        }
+
+        .s1 {
+            transform: translate(-60px, -60px);
+            background-color: #F9B198;
+            z-index: 100;
+        }
+
+        .s2 {
+            background-color: #F48CAF;
+            transform: translate(-45px, -45px);
+            z-index: 95;
+        }
+
+        .s3 {
+            transform: translate(-30px, -30px);
+            background-color: #D088BA;
+            z-index: 85;
+        }
+
+        .s4 {
+            transform: translate(-15px, -15px);
+            background-color: #9D76B5;
+            z-index: 80;
+        }
+
+        .s5 {
+            background-color: #7869AE;
+            z-index: 75;
+        }
+
+        .s6 {
+            transform: translate(15px, 15px);
+            background-color: #5D59A6;
+            z-index: 70;
+        }
+
+        .s7 {
+            transform: translate(30px, 30px);
+            background-color: #484EA2;
+            z-index: 65;
+        }
+
+        .s8 {
+            transform: translate(45px, 45px);
+            background-color: #384A9F;
+            z-index: 60;
+        }
+
+        .s9 {
+            transform: translate(60px, 60px);
+            background-color: #302b8c;
+            z-index: 55;
+        }
+
+        .box3 {
+            height: 15%;
+            width: 100%;
+            border: 2px solid black;
+            text-align: center;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box1">
+            <h2>그라데이션</h2>
+        </div>
+        <div class="box2">
+            <div class="square s1"></div>
+            <div class="square s2"></div>
+            <div class="square s3"></div>
+            <div class="square s4"></div>
+            <div class="square s5"></div>
+            <div class="square s6"></div>
+            <div class="square s7"></div>
+            <div class="square s8"></div>
+            <div class="square s9"></div>
+        </div>
+        <div class="box3">
+            <h2>BOX 9개</h2>
+        </div>
+    </div>
+</body>
+</html>

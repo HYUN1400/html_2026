@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mediaExam</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .header {
+            height: 60px;
+            background-color: rgb(201, 197, 184);
+            font-size: 20px;
+            font-weight: 700;
+            padding: 18px 40px;
+            box-sizing: border-box;
+            color: white;
+        }
+
+        /* media query 반응형 */
+        .main-img {
+            background-image: url(../resource/galaxy.jpg);
+            height: 300px;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .discription {
+            height: 300px;
+            background-color: white;
+            padding: 18px 40px;
+            box-sizing: border-box;
+        }
+        
+        .discription > p:first-child {
+            font-weight: 700;
+            color: grey;
+            font-size: 20px;
+            margin: 30px 0;
+        }
+
+        .discription > p:nth-child(2) {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .discription > p:last-child {
+            font-size: 16px;
+        }
+
+        .sub-img1 {
+            height: 300px;
+            background-image: url(../resource/nasa.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .sub-img2 {
+            height: 300px;
+            background-image: url(../resource/unsplash.jpg);
+            background-position: center;
+            background-size: cover;
+            text-align: center;
+            line-height: 300px;
+        }
+
+        .sub-img2 > a {
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            border: 4px solid rgb(255, 255, 255);
+            padding: 10px 40px;
+        }
+
+        .sub-img3 {
+            height: 300px;
+            background-image: url(../resource/nasa2.jpg);
+            background-position: center;
+            background-size: cover;
+            text-align: center;
+            line-height: 300px;
+        }
+
+        @media screen and (min-width:800px) {
+            .main-img {
+                height: 400px;
+            }
+
+            .sub-img1 {
+                width: 50%;
+                height: 500px;
+                float: left;
+            }
+
+            .sub-img2 {
+                width: 50%;
+                height: 250px;
+                float: right;
+                line-height: 250px;
+            }
+
+            .sub-img3 {
+                width: 50%;
+                height: 250px;
+                float: right;
+            }
+        }
+
+        @media screen and (min-width:1200px) {
+            .main-img {
+                height: 100vh;
+                width: 50%;
+                float: left;
+            }
+
+            .discription {
+                width: 50%;
+                height: 50vh;
+                float: right;
+            }
+
+            .sub-img1 {
+                width: 25%;
+                height: 50vh;
+                float: left;
+            }
+
+            .sub-img2 {
+                width: 25%;
+                height: 25vh;
+                float:right;
+                line-height: 25vh;
+            }
+
+            .sub-img3 {
+                width: 25%;
+                height: 25vh;
+                float: right;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">PROJECT HAILMARY</div>
+        <div class="main-img"></div>
+        <div class="discription">
+            <p>Portfolio</p>
+            <p>Make Hardware Soft</p>
+            <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced</p>
+        </div>
+        <div class="sub-img1"></div>
+        <div class="sub-img2">
+            <a href="">VIEW MORE</a>
+        </div>
+        <div class="sub-img3"></div>
+    </div>
+</body>
+</html>

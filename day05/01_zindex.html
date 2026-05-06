@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zindex</title>
+    <!-- 
+        z-index : 요소가 겹쳐있을 때 우선순위를 정하는 속성
+        - 기본값은 자식이 위로 오게 됨
+        - 숫자가 높을 수록 우선순위를 가짐 (높을수록 위로, 정수값)
+    -->
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin-top: -1px;
+            position: absolute;
+        }
+        .box1 {
+            top: 15px;
+            left: 15px;
+            background-color: beige;
+            z-index: 10;
+        }
+        .box2 {
+            top: 30px;
+            left: 30px;
+            background-color: rgb(235, 235, 206);
+        }
+        .box3 {
+            top: 45px;
+            left: 45px;
+            background-color: rgb(222, 222, 179);
+        }
+        .box4 {
+            top: 60px;
+            left: 60px;
+            background-color: rgb(197, 197, 150);
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+</body>
+</html>

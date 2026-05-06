@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>naverSearch</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .searchBox {
+            display: flex;
+
+            width: 710px;
+            height: 60px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 50px;
+            border: 1px solid #03C75A;
+        }
+
+        .searchBox:hover{
+            box-shadow: 2px 2px 6px rgba(150, 150, 150, 0.2);
+        }
+
+        .logo{
+            box-sizing: border-box;
+            width: 67px;
+            height: 58px;
+            background-image: url(../resource/naver.png);
+            background-size: 40px 40px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .logo:hover {
+            cursor: pointer;
+        }
+
+        .searchInput > input{
+            box-sizing: border-box;
+            border: none;
+            width: 515px;
+            height: 58px;
+
+            font-size: 1.5em;
+        }
+
+        input::placeholder{
+            color: transparent;
+        }
+
+        input:focus{
+            outline: none;
+        }
+
+        input:focus::placeholder{
+            color: #cdcdcd;
+        }
+
+        .icons {
+            display: flex;
+            gap: 5px;
+            box-sizing: border-box;
+            width: 114px;
+            height: 58px;
+        }
+
+        .keyboard {
+            width: 40px;
+            height: 58px;
+            background-image: url(../resource/keyboard_fill.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 30px 30px;
+        }
+
+        .dropmenu {
+            background-color: transparent;
+            border: none;
+            width: 27px;
+            height: 58px;
+            background-image: url(../resource/arrow_down.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 12px 12px;
+            cursor: pointer;
+        }
+
+        .searching {
+            background-color: transparent;
+            border: none;
+            display: flex; 
+            justify-content: center;
+            align-items: center; 
+            width: 67px;
+            height: 58px;
+            cursor: pointer; 
+            padding: 0; 
+        }
+        
+        .searching:hover{
+            cursor: pointer;
+        }
+
+
+        .searching > svg {
+            width: 25px;
+            height: 25px;
+            display: block;
+        }
+
+        .list {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            width: 680px;
+            height: 80px;
+        }
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 64px;
+            gap: 8px;
+        }
+
+        .item > .image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            box-shadow: 1px 3px 6px rgba(120, 120, 120, 0.2);
+            border-radius: 15px;
+        }
+
+        .item > .image:hover {
+            cursor: pointer;
+            box-shadow: 1px 3px 6px rgba(70, 70, 70, 0.3);
+        }
+
+        .item > .image > img {
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .item > span {
+            width: 64px;
+            height: 20px;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="">
+        <div class="container">
+            <div class="searchBox">
+                <div class="logo" onclick="window.open('http://naver.com')">
+                    <!-- N 아이콘 -->
+                </div>
+                <div class="searchInput">
+                    <!-- placeholder -->
+                    <input type="text" placeholder="검색어를 입력하세요."> 
+                </div>
+                <div class="icons">
+                    <!-- 아이콘들 -->
+                     <div class="keyboard"></div>
+                     <button class="dropmenu"></button>
+                     <button class="searching">
+                        <svg id="search-btn-svg" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="ico_btn_search type_color" style="fill: #03C75A"> <path d="M22.13.5c11.378 0 20.632 9.256 20.632 20.63 0 4.699-1.566 9.155-4.439 12.782l10.164 10.165a2.41 2.41 0 0 1-1.706 4.115 2.412 2.412 0 0 1-1.706-.705L33.31 35.719a2.41 2.41 0 0 1 0-3.41 15.71 15.71 0 0 0 4.628-11.178c0-8.718-7.09-15.808-15.807-15.808-8.718 0-15.808 7.09-15.808 15.808 0 7.15 4.817 13.43 11.714 15.273a2.41 2.41 0 0 1 1.705 2.954 2.41 2.41 0 0 1-2.95 1.705C7.788 38.658 1.5 30.46 1.5 21.131 1.5 9.756 10.756.5 22.13.5zm4.716 34.746a3.483 3.483 0 1 1 0 6.966 3.483 3.483 0 0 1 0-6.966z"></path> </svg>
+                     </button>
+                </div>
+            </div>
+            <div class="list">
+                <div class="item">
+                    <div class="image">
+                        <img src="https://cdn-1.webcatalog.io/catalog/naver-mail/naver-mail-icon-filled-256.png?v=1714775233117" alt="">
+                    </div>
+                    <span>메일</span>
+                </div>
+
+                <div class="item">
+                    <div class="image">
+                        <img src="https://i.namu.wiki/i/-EOPzfOdsH6wqGebXaKSmKxWS94qR8zBdDg89OM4y5hBds44-q17Kqrs6gC1Iy8EBkklj4AKEwzIC6FsUhgF0w.webp" alt="">
+                    </div>
+                    <span>카페</span>
+                </div>
+
+                <div class="item">
+                    <div class="image">
+                        <img src="https://media.cdnandroid.com/item_images/412278/imagen-ee-i-ee-ee-ee-e-naver-blog-0ori.jpg" alt="">
+                    </div>
+                    <span>블로그</span>
+                </div>
+
+                <div class="item">
+                    <div class="image">
+                        <img src="https://cdn-1.webcatalog.io/catalog/naver-shopping/naver-shopping-icon-filled-256.png?v=1762255689506" alt="">
+                    </div>
+                    <span>스토어</span>
+                </div>
+
+                <div class="item">
+                    <div class="image">
+                        <img src="https://cdn-1.webcatalog.io/catalog/naver-sports/naver-sports-icon-filled-256.png?v=1762255283607" alt="">
+                    </div>
+                    <span>뉴스</span>
+                </div>
+
+                <div class="item">
+                    <div class="image">
+                        <img src="https://cdn-1.webcatalog.io/catalog/naver-finance/naver-finance-icon-filled-256.png?v=1762255485771" alt="">
+                    </div>
+                    <span>증권</span>
+                </div>
+
+                <div class="item">
+                    <div class="image">
+                        <img src="https://cdn-1.webcatalog.io/catalog/naver-real-estate/naver-real-estate-icon-filled-256.webp?v=1714775233879" alt="">
+                    </div>
+                    <span>부동산</span>
+                </div>
+
+                <div class="item">
+                    <div class="image">
+                        <img src="https://cdn-1.webcatalog.io/catalog/naver-my-place/naver-my-place-icon-filled-256.webp?v=1762269943000" alt="">
+                    </div>
+                    <span>지도</span>
+                </div>
+
+                <div class="item">
+                    <div class="image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Naver_Line_Webtoon_logo.png" alt="">
+                    </div>
+                    <span>웹툰</span>
+                </div>
+
+                <div class="item">
+                    <div class="image">
+                        <img src="https://cdn-1.webcatalog.io/catalog/chzzk/chzzk-icon-filled-256.webp?v=1777249990410" alt="">
+                    </div>
+                    <span>치지직</span>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

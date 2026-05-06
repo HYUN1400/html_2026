@@ -1,0 +1,318 @@
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-1Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-2ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-3Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-4Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-5Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-6SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-7Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-9Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard';
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    margin: 0px;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100;
+    float: none;
+}
+
+.wrap {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.inner {
+    width: 100%;
+    max-width: 1360px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.top {
+    width: 100%;
+    height: 30px;
+    border-bottom: 1px solid #dddddd;
+    margin-top: 10px;
+}
+
+.top-left-box {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.top-right-box {
+    height: 100%;
+    display: flex;
+    gap: 30px;
+}
+
+.top-left-box > a, .top-right-box > a, span {
+    font-size: 13px;
+    text-decoration: none;
+    color: #666666;
+}
+
+.top-left-box > a:nth-child(7) {
+    font-weight: 700;
+    color: #005e3c;
+}
+
+.top-left-box > a:nth-child(7)::before {
+    content: "|";
+    font-weight: 400;
+    color: #dddddd;
+    margin-right: 15px;
+}
+
+.menu {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #dddddd;
+    display: flex;
+    align-items: center;
+}
+
+.menu-left-box {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 70px;
+}
+
+.menu-right-box {
+    height: 100%;
+    align-items: center;
+    display: flex;
+}
+
+.menu-left-box > a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #000000;
+}
+
+.menu-left-box > img {
+    width: 80px;
+    margin-right: 50px;
+}
+
+.menu-right-box > a {
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #005e3c;
+    border: 1px solid #005e3c;
+    border-radius: 50px;
+    padding: 7px 20px;
+}
+
+.main-img > img {
+    position: relative;
+    width: 100%;
+    height: auto;
+
+}
+
+main .slide .script {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+}
+
+main .slide .script > span {
+    font-weight: 900;
+    font-size: 50px;
+    color: white;
+}
+
+#ptop {
+    margin-top: 20px;
+}
+
+main .slide .script > p {
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    margin: 0;
+}
+
+.con-box {
+    padding: 120px 0;
+}
+
+main .slide .info-box {
+    display: flex;
+    width: 1230px;
+    height: 80px;
+    background-color: white;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+}
+
+main .slide .info-box .time-bar {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+    box-sizing: border-box;
+    padding: 0 50px;
+}
+
+main .slide .info-box .time-bar img {
+    width: 32px;
+    line-height: 80px;
+}
+
+main .slide .info-box .time-bar span {
+    font-size: 20px;
+    color: black;
+    line-height: 80px;
+}
+
+main .slide .info-box .time-bar .time-bar-2 {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+main .slide .info-box .info-bar {
+    width: 20%;
+    background-color: #005e3c;
+}

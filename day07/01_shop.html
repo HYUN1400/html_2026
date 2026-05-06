@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shop</title>
+    <style>
+        @font-face {
+            font-family: HeirofLightBold;
+            src: url(../resource/font/HeirofLightBold.ttf);
+        }
+
+        @font-face {
+            font-family: HeirofLightRegular;
+            src: url(../resource/font/HeirofLightRegular.ttf);
+        }
+
+        body {
+            margin: 0px;
+            background-image: url(../resource/giphy.gif), url(../resource/hollow-knight-bg.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            overflow-x: hidden;
+            background-blend-mode: screen;
+        }
+
+        .header {
+            display: flex;
+            height: 15vh;
+            box-sizing: border-box;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .logo-img {
+            height: 80%;
+            width: auto;
+            object-fit: contain;
+            margin: 10px 0px 0px 20px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+            padding-right: 30px;
+            font-family: HeirofLightBold;
+            font-size: 18px;
+        }
+
+        .menu > a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .menu > a:hover {
+            text-shadow: 1px -1px 5px white;
+        }
+
+        .body {
+            min-height: 75vh; 
+            height: auto;     
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+            padding: 50px 0; 
+        }
+
+        .main-img {
+            background-image: url(../resource/hollowknight.JPG);
+            min-width: 100%;
+            height: 500px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            transition: 0.4s ease;
+
+            box-shadow: 5px 0px 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .main-img:hover {
+            filter: grayscale();
+            transition: 1s;
+        }
+
+        .new {
+            font-family: HeirofLightBold;
+            font-size: 30px;
+            color: white;
+            text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .product {
+            height: 60%;
+            display: grid;
+            grid-template-columns: repeat(3, 200px);
+            justify-items: center;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .product > div {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            width: 200px;
+            box-sizing: border-box;      
+        }
+
+        .product > div > img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgb(166, 233, 241);
+            
+            transition: 0.5s ease;
+        }
+
+        .product > div > img:hover {
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
+            scale: calc(1.1);
+            transition: 0.5s;
+        }
+
+        .product > div > span {
+            color: white;
+            font-family: HeirofLightbold;
+            font-size: 18px;
+            text-align: center;
+            text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .footer {
+            min-height: 10vh; 
+            height: auto;
+            margin-top: 50px;
+
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .footer > svg {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container" onclick="location.href=''">
+                <img src="../resource/logo_main.png" alt="" class="logo-img">
+            </div>
+            <div class="menu">
+                <a href="">CONTENT</a>
+                <a href="">SHOP</a>
+                <a href="">CART</a>
+                <a href="">LOGIN</a>
+            </div>
+        </div>
+        <div class="body">
+            <div class="main-img"></div>
+
+            <span class="new">NEW ARRIVAL</span>
+
+            <div class="product">
+                <div class="item1">
+                    <img src="../resource/hollowknight_1.JPG" alt="">
+                    <span>KNIGHT PLUSH</span>
+                    <span>$55</span>
+                </div>
+                <div class="item2">
+                    <img src="../resource/hollowknight_2.JPG" alt="">
+                    <span>HOLLOW PLUSH</span>
+                    <span>$55</span>
+                </div>
+                <div class="item3">
+                    <img src="../resource/hollowknight_3.JPG" alt="">
+                    <span>VOID PLUSH</span>
+                    <span>$55</span>
+                </div>
+                <div class="item4">
+                    <img src="../resource/hollowknight_4.JPG" alt="">
+                    <span>QUIRREL PLUSH</span>
+                    <span>$55</span>
+                </div>
+                <div class="item5">
+                    <img src="../resource/hollowknight_5.JPG" alt="">
+                    <span>MINI FIGURE</span>
+                    <span>$55</span>
+                </div>
+                <div class="item6">
+                    <img src="../resource/hollowknight_6.JPG" alt="">
+                    <span>SOUNDTRACK LP</span>
+                    <span>$55</span>
+                </div>
+                <div class="item7">
+                    <img src="../resource/hollowknight_7.JPG" alt="">
+                    <span>PIN</span>
+                    <span>$55</span>
+                </div>
+                <div class="item8">
+                    <img src="../resource/hollowknight_8.JPG" alt="">
+                    <span>JOURNALS</span>
+                    <span>$55</span>
+                </div>
+                <div class="item9">
+                    <img src="../resource/hollowknight_9.JPG" alt="">
+                    <span>KNIGHT PLUSH</span>
+                    <span>$55</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-steam" viewBox="0 0 16 16">
+                <path d="M.329 10.333A8.01 8.01 0 0 0 7.99 16C12.414 16 16 12.418 16 8s-3.586-8-8.009-8A8.006 8.006 0 0 0 0 7.468l.003.006 4.304 1.769A2.2 2.2 0 0 1 5.62 8.88l1.96-2.844-.001-.04a3.046 3.046 0 0 1 3.042-3.043 3.046 3.046 0 0 1 3.042 3.043 3.047 3.047 0 0 1-3.111 3.044l-2.804 2a2.223 2.223 0 0 1-3.075 2.11 2.22 2.22 0 0 1-1.312-1.568L.33 10.333Z"/>
+                <path d="M4.868 12.683a1.715 1.715 0 0 0 1.318-3.165 1.7 1.7 0 0 0-1.263-.02l1.023.424a1.261 1.261 0 1 1-.97 2.33l-.99-.41a1.7 1.7 0 0 0 .882.84Zm3.726-6.687a2.03 2.03 0 0 0 2.027 2.029 2.03 2.03 0 0 0 2.027-2.029 2.03 2.03 0 0 0-2.027-2.027 2.03 2.03 0 0 0-2.027 2.027m2.03-1.527a1.524 1.524 0 1 1-.002 3.048 1.524 1.524 0 0 1 .002-3.048"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>
