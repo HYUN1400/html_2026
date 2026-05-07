@@ -141,28 +141,32 @@ header {
     background-color: white;
     z-index: 100;
     float: none;
+
+    margin: 0 auto;
 }
 
 .wrap {
     width: 100%;
-    max-width: 1400px;
+    min-width: 1400px;
     margin: 0 auto;
 }
 
 .inner {
     width: 100%;
     max-width: 1360px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
+
+    padding: 0 40px;
 }
 
 .top {
     width: 100%;
-    height: 30px;
+    height: 40px;
     border-bottom: 1px solid #dddddd;
-    margin-top: 10px;
+    padding-top: 10px;
 }
 
 .top-left-box {
@@ -245,12 +249,30 @@ header {
 
 }
 
+.slide {
+    position: relative;
+}
+
+
+.main-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 main .slide .script {
+    position: absolute;
+    inset: 0;
+
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 40%;
-    left: 10%;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 1360px;
+
+    padding: 0 40px;
+    margin: 0 auto;
 }
 
 main .slide .script > span {
@@ -270,37 +292,56 @@ main .slide .script > p {
     margin: 0;
 }
 
-.con-box {
-    padding: 120px 0;
-}
+/* slide */
 
 main .slide .info-box {
     display: flex;
-    width: 1230px;
+    width: calc(100% - 80px);
+    max-width: 1280px;
     height: 80px;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
     background-color: white;
     position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -20%);
 }
 
 main .slide .info-box .time-bar {
     width: 80%;
     display: flex;
-    align-items: center;
-    text-align: center;
+    justify-content: center;
     gap: 50px;
     box-sizing: border-box;
     padding: 0 50px;
+    position: relative;
 }
 
 main .slide .info-box .time-bar img {
     width: 32px;
     line-height: 80px;
+    margin-right: 10px;
+    position: absolute;
+    top: 23px;
+    left: 150px;
 }
 
-main .slide .info-box .time-bar span {
+main .slide .info-box .time-bar > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+
+    font-size: 20px;
+    color: black;
+    line-height: 80px;
+}
+
+main .slide .info-box .time-bar > .time-bar-2 >  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
     font-size: 20px;
     color: black;
     line-height: 80px;
@@ -315,4 +356,629 @@ main .slide .info-box .time-bar .time-bar-2 {
 main .slide .info-box .info-bar {
     width: 20%;
     background-color: #005e3c;
+}
+
+main .slide .info-box .info-bar > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    font-size: 18px;
+    color: white;
+    height: 100%;
+}
+
+main .slide .info-box .info-bar > span > img {
+    filter:invert(100%);
+}
+
+.con-box {
+    padding: 100px 0;
+}
+
+/* conbox-1 */
+.con-box.con1 {
+    display: flex;
+}
+
+.special-ex {
+    width: 350px;
+}
+
+.special-ex-head {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+}
+
+.special-ex-head img {
+    width: 32px;
+    height: 32px;
+}
+
+.special-ex .special-ex-list {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.special-ex .special-ex-list img {
+    width: 100%;
+}
+
+.special-ex .special-ex-list .controller {
+    display: flex;
+    justify-content: center;
+}
+
+.special-ex .special-ex-list .controller .front {
+    color:#005e3c;
+    font-weight: 700;
+}
+
+.special-ex .special-ex-list .controller .front::after {
+    content: "/";
+    display: inline-block;
+    position: relative;
+    margin: 0 10px 0 10px;
+    color: #999999;
+}
+
+.special-ex .special-ex-list .controller button {
+    border: none;
+    background-color: transparent;
+}
+
+.special-ex .special-ex-list .controller button > img {
+    filter: brightness(10);
+}
+
+.permanent-ex {
+    width: calc(100% - 400px);
+}
+
+.permanent-ex-head {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+}
+
+.permanent-ex .permanent-ex-list {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.permanent-ex .permanent-ex-head > a > img {
+    width: 32px;
+    height: 32px;
+}
+
+.permanent-ex .permanent-ex-list > .permanent-ex-list1 > img, .permanent-ex-list > .permanent-ex-list2 > img {
+    width: 336px;
+}
+
+.permanent-ex .permanent-ex-list > .permanent-ex-list1, .permanent-ex-list > .permanent-ex-list2 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.permanent-ex .permanent-ex-list > .permanent-ex-list1 {
+    border-bottom: 1px solid #dcdcdc;
+    padding-bottom: 30px;
+}
+
+.permanent-ex .permanent-ex-script > .pex-script-main1 {
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.permanent-ex .permanent-ex-script > .pex-script-main2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.permanent-ex .permanent-ex-script > .pex-script-sub {
+    font-size: 15px;
+    line-height: 23px;
+    color: #666666;
+    margin-bottom: 30px;
+}
+
+.permanent-ex .permanent-ex-script > a {
+    display: flex;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    color: black;
+    gap: 5px;
+}
+
+.permanent-ex .permanent-ex-list .controller {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.permanent-ex .permanent-ex-list .controller .front {
+    color:#005e3c;
+    font-weight: 700;
+}
+
+.permanent-ex .permanent-ex-list .controller .front::after {
+    content: "/";
+    display: inline-block;
+    position: relative;
+    margin: 0 10px 0 10px;
+    color: #999999;
+}
+
+.permanent-ex .permanent-ex-list .controller button {
+    border: none;
+    background-color: transparent;
+}
+
+.permanent-ex .permanent-ex-list .controller button:first-child > img {
+    filter: brightness(10);
+}
+
+.special-ex > .special-ex-head span, .permanent-ex > .permanent-ex-head span {
+    font-size: 33px;
+    font-weight: 800;
+    color: black;
+}
+
+/* conbox-2 */
+
+.con-box.con2 {
+    display: flex;
+    background-image: url(../resource/민속박물관/main_deco_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: auto;
+}
+
+.exercise-list {
+    width: 100%;
+}
+
+.exercise-list .ex-list-head {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.exercise-list .ex-list-head > span {
+    font-size: 50px;
+    font-weight: 700;
+    color: black;
+}
+
+.exercise-list .ex-lists-head {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.exercise-list .ex-lists-head > a {
+    font-size: 20px;
+    text-decoration: none;
+    color: #666666;
+}
+
+.exercise-list .ex-lists-head > a:first-child {
+    color:#005e3c;
+    font-weight: 800;
+
+}
+
+.exercise-list .ex-lists-head > a:first-child::after {
+    content: "·";
+    display: inline-block;
+    position: relative;
+    margin: 0 10px 0 10px;
+    color: #999999;
+}
+
+.exercise-list .ex-lists-contents {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    margin: 0 0 60px 0;
+    gap: 15px;
+}
+
+.ex-lists-contents .ex-content {
+    width: 100%;
+    height: 500px;
+}
+
+.ex-lists-contents .ex-content > .ex-content-img {
+    width: 100%;
+    height: 380px;
+    background-position: center;
+    background-size: cover;
+    border: 1px solid #dddddd;
+}
+
+.ex-lists-contents .ex-content > .ex-content-script {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    gap: 8px;
+}
+
+.ex-lists-contents .ex-content > .ex-content-script > span {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.ex-lists-contents .ex-content > .ex-content-script > strong {
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.ex-lists-contents .ex-content > .ex-content-script > .age {
+    width: 45px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    background-color: #1cb2a9;
+}
+
+.ex-lists-contents .ex-content > .ex-content-script > .age.age2 {
+    background-color: #358cdc;
+}
+
+.ex-lists-contents .ex-content > .ex-content-img.img1 {
+    background-image: url(../resource/민속박물관/imgi_14_202508061987e6b4d9180.png);
+}
+
+.ex-lists-contents .ex-content > .ex-content-img.img2 {
+    background-image: url(../resource/민속박물관/imgi_15_202508061987e67f3de90.png);
+}
+
+.ex-lists-contents .ex-content > .ex-content-img.img3 {
+    background-image: url(../resource/민속박물관/imgi_16_202509121993d45b23d30.png);
+}
+
+.ex-lists-contents .ex-content > .ex-content-img.img4 {
+    background-image: url(../resource/민속박물관/imgi_17_202508061987e45a30260.png);
+}
+
+.exercise-list > .ex-list-lists > .button-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.allbutton {
+    width: 180px;
+    height: 50px;
+    border: 0.5px solid black;
+    background: transparent;
+
+    font-size: 17px;
+    font-weight: 800;
+}
+
+/* conbox-3 */
+
+.con-box.con3 {
+    display: flex;
+    background-image: url(../resource/민속박물관/main_escape_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: auto;
+
+    position: relative;
+}
+
+.escape-banner {
+    width: 100%;
+}
+
+.escape-banner > .escape-head > span {
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    margin-bottom: 20px;
+}
+
+.escape-banner > .escape-head > span:nth-of-type(2) {
+    font-size: 20px;
+    color:#666666;
+    margin-bottom: 40px;
+}
+
+.escape-banner > .escape-slide {
+    width: 1072px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.escape-banner .escape-slide-banner {
+    display: flex;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+.escape-banner > .escape-slide > .escape-slide-banner > .esb-left {
+    width: 40%;
+    height: 450px;
+
+    background-image: url(../resource/민속박물관/imgi_49_main_deco_bg_02-BHVkLLTU.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.escape-banner > .escape-slide > .escape-slide-banner > .esb-left > .esb-left-img {
+    width: 100%;
+    height: 100%;
+    background-image: url(../resource/민속박물관/imgi_18_20250924199795bafbd10.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 55%;
+
+    filter: drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.3));
+}
+
+.escape-banner > .escape-slide > .escape-slide-banner > .esb-right {
+    width: 60%;
+    height: 450px;
+    padding: 75px;
+    background-color: white;
+}
+
+.escape-slide-banner > .esb-right > .esb-right-head {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.escape-slide-banner > .esb-right > .esb-right-head > span {
+    font-size: 37px;
+    color: black;
+    font-weight: 700;
+}
+
+.escape-slide-banner > .esb-right > .esb-right-head > span:nth-of-type(2) {
+    font-size: 16px;
+    color: #666666;
+}
+
+.escape-slide-banner > .esb-right > .esb-right-info {
+    display: flex;
+    align-items: center;
+
+    gap: 60px;
+
+    margin-bottom: 60px;
+}
+
+.escape-slide-banner > .esb-right > .esb-right-info > span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.escape-slide-banner > .esb-right > .esb-right-info .esb-right-img-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: #ebebeb;
+    border-radius: 50%;
+}
+
+.escape-slide-banner > .esb-right > .esb-right-info .esb-right-img-box > .img-box1 {
+    width: 100%;
+    height: 100%;
+    background-image: url(../resource/민속박물관/imgi_39_default.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60% 60%;
+}
+
+.escape-slide-banner > .esb-right > .esb-right-info .esb-right-img-box > .img-box2 {
+    width: 100%;
+    height: 100%;
+    background-image: url(../resource/민속박물관/imgi_41_default.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60% 60%;
+}
+
+.escape-slide-banner > .esb-right > .esb-right-info > span > span {
+    font-size: 18px;
+    color: black;
+    font-weight: 700;
+}
+
+.escape-slide-banner > .esb-right > .esb-right-info > span > .time {
+    font-size: 18px;
+    color: #999999;
+    font-weight: 700;
+}
+
+.esb-right-detail > button {
+    background-color: #005e3c;
+    color: white;
+}
+
+.escape-slide-controller {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    margin-top: 40px;
+}
+
+.escape-slide-controller > .select {
+    width: 40px;
+    border-radius: 20px;
+    background-color: black;
+}
+
+.escape-slide-controller > button {   
+    border: none;
+    padding: 0;
+
+    width: 10px;
+    height: 10px;
+    background-color: #999999;
+    border-radius: 50%;
+
+    margin: 5px;
+}
+
+
+.escape-button {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.escape-slide-navigate {
+    width: 100%;
+    max-width: 1360px;
+
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.escape-slide-navigate > a {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.escape-slide-navigate > a > img {
+    filter:invert(100%);
+}
+
+/* conbox-4 */
+
+.con-box.con4 {
+    width: 100%;
+}
+
+.con4 .link-container {
+    width: 100%;
+    max-width: 1360px;
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.link-container > .link-banner-left, .link-container > .link-banner-right {
+    width: 50%;
+    height: 256px;
+    background-color: #dcdcdc60;
+
+    cursor: pointer;
+}
+
+.link-container > .link-banner-left {
+    background-image: url(../resource/민속박물관/imgi_21_202509251997cfd11bb40.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.link-container > .link-banner-right {
+    background-image: url(../resource/민속박물관/imgi_22_202509251997cfece7480.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.link-container .link-span-container {
+    padding: 140px 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.link-container span {
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
+
+}
+
+.link-container span:nth-of-type(even) {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* conbox-5 */
+
+.con-box.con5 {
+    width: 100%;
+    padding: 0;
+}
+
+.con-box.con5 > .link-bar {
+    display: flex;
+    width: 100%;
+    height: 100px;
+}
+
+.con-box.con5 > .link-bar > .link-bar-left {
+    width: 50%;
+    height: 100px;
+    background-color: #005e3c;
+}
+
+.con-box.con5 > .link-bar > .link-bar-right {
+    width: 50%;
+    height: 100%;
+    background-color: #025034;
+}
+
+.link-inner-left {
+    width: 100%;
+    max-width: 1360px;
+}
+
+.link-bar-left .link-inner-left > span, .link-bar-right .link-inner-right > span {
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
 }
