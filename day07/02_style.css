@@ -126,6 +126,8 @@
 
 * {
     box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
 }
 
 body {
@@ -951,34 +953,274 @@ main .slide .info-box .info-bar > span > img {
 
 .con-box.con5 {
     width: 100%;
-    padding: 0;
+    padding: 0px 0px 50px 0px;
 }
 
 .con-box.con5 > .link-bar {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     width: 100%;
     height: 100px;
+
+    background: linear-gradient(to right, #005E3C 50%, #004A2F 50%);
 }
 
-.con-box.con5 > .link-bar > .link-bar-left {
+.link-bar .inner .link-inner-left, .link-bar .inner .link-inner-right {
     width: 50%;
     height: 100px;
-    background-color: #005e3c;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    cursor: pointer;
 }
 
-.con-box.con5 > .link-bar > .link-bar-right {
-    width: 50%;
+.link-bar .inner .link-inner-right {
+    justify-content: flex-end;
+}
+
+.link-bar .inner span {
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+
+    margin-right: 410px;
+}
+
+.link-bar .inner .left-icon, .link-bar .inner .right-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #003D27;
+}
+
+.link-bar .inner .left-icon {
+    background-color: #004C30;
+}
+
+.link-bar .inner .left-icon .left-icon-img {
+    width: 100%;
     height: 100%;
-    background-color: #025034;
+
+    background-image: url(../resource/민속박물관/imgi_42_default.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60% 60%;
+
+    filter:invert(100%);
 }
 
-.link-inner-left {
+.link-bar .inner .right-icon .right-icon-img {
+    width: 100%;
+    height: 100%;
+
+    background-image: url(../resource/민속박물관/imgi_44_default.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60% 60%;
+
+    filter:invert(100%);
+}
+
+.link-inner-left > img, .link-inner-right > img {
+    filter: invert(100%);
+    width: 35px;
+    height: 35px;
+}
+
+
+/* footer */
+
+footer .footer-container {
     width: 100%;
     max-width: 1360px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    padding-bottom: 80px;
 }
 
-.link-bar-left .link-inner-left > span, .link-bar-right .link-inner-right > span {
-    font-size: 20px;
-    font-weight: 800;
+.footer-container .footer-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-top .top-left, .footer-top .top-right {
+
+    height: auto;
+}
+
+.footer-container .footer-top .top-right .top-right-links {
+    margin-bottom: 30px;
+}
+
+.footer-container .footer-top .top-right .top-right-links > ul {
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    gap: 20px;
+}
+
+.footer-container .footer-top .top-right .top-right-links > ul > li > a {
+    color: black;
+}
+
+.footer-container .footer-top .top-right .top-right-links > ul > li:nth-of-type(5) > a {
+    color: #5925ec;
+}
+
+.footer-container .footer-top .top-right .top-right-icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-left: 10px;
+    gap: 40px;
+} 
+
+.top-right-icons > .sns-icons {
+    display: flex;
+    gap: 15px
+}
+
+.top-right-icons > .sns-icons > img {
+    width: 32px;
+    height: 32px;
+}
+
+.top-right-icons > .select-box > select {
+    appearance: none;
+    padding: 12px 55px 12px 20px;
+    border: none;
+    background-color: #f4f4f4;
+    border-radius: 50px;
+    color: #666666;
+
+    background-image: url(../resource/민속박물관/imgi_48_default.png);
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    background-size: 12px;
+}
+
+.top-right-icons > .select-box > select:focus {
+    outline: none;
+    border: none;
+}
+
+.footer-container .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-bottom > .information {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom > .information > span:nth-of-type(1) {
+    display: flex;
+    font-size: 14px;
+    font-weight: 600;
+    color: black;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.footer-bottom > .information > span:nth-of-type(2), .footer-bottom > .information > span:nth-of-type(3) {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 7px;
+}
+
+.footer-bottom > .information > span:nth-of-type(4) {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+
+.footer-bottom > .mark-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 40px;
+}
+
+.footer-bottom > .mark-logos > .logos-1, .logos-2 {
+    display: flex;
+    align-items: center;
+}
+
+.footer-bottom > .mark-logos > .logos-1 > .script {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footer-bottom > .mark-logos span {
+    font-size: 12px;
+    color: #666666;
+}
+
+.footer-bottom > .mark-logos > .logos-1 > .script > span > span:nth-of-type(1)::after {
+    content: "|";
+    display: inline-block;
+    position: relative;
+    margin: 0 10px 0 10px;
+    color: #999999;
+}
+
+.footer-bottom > .mark-logos img {
+    width: 45px;
+    margin-right: 15px;
+}
+
+/* top */
+
+.fixed-top {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+}
+
+.fixed-top .fixed-top-img {
+    width: 100%;
+    height: 40px;
+
+    background-image: url(../resource/민속박물관/imgi_43_default\ -\(2\).png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40% 40%;
+}
+
+.fixed-ticket {
+    width: 120px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: #005e3c;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+
+.fixed-ticket a {
+    display: flex;
+    justify-content: center;
+}
+
+.fixed-ticket span {
+    font-size: 16px;
+    font-weight: 700;
     color: white;
+    line-height: 40px;
 }
