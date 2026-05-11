@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let</title>
+</head>
+<body>
+    <h1 class="h1">자바스크립트의 변수 사용</h1>
+    <!-- 
+        변수: 값을 담고 있는 메모리 공간의 이름 / 할당
+        - java => 자료형 변수명 = 값;
+        - 자바스크립트는 자료형이 없음 => 값의 제한이 없음
+
+        자바스크립트에서 문자 표현 방식
+        "문자", '문자', `문자`
+        html 내부 속성의 값을 표현할 때 => ""
+        "<h1 class="h1">자바스크립트의 변수 사용</h1>" => X
+        `<h1 class="h1">자바스크립트의 변수 사용</h1>` => O
+        '<h1 class="h1">자바스크립트의 변수 사용</h1>' => O
+
+        변수 기호: var, let, const
+        - var : ES6 ver. 이후로 권장하지 않음
+            => 중복선언이 가능, 재할당 가능
+            var name = 'hong';
+            var name = 'kim';
+
+        - let : java에서의 지역변수 개념
+            => 중복선언 불가능, 재할당 가능
+
+        - const : 객체, 함수, 참조, 규칙 정의시 사용 (고정된 값을 사용할 때)
+            => 중복선언, 재할당 불가능
+
+        변수의 사용범위(scope: 스코프) : {  }
+
+        호이스팅 
+    -->
+</body>
+<script>
+    let name1 = 'lee';
+    console.log(name1);
+
+    var name = 'hong';
+    name = 'lee'; // 재할당
+    console.log(name);
+
+    var name = 'kim';
+    console.log(name);
+
+    const number = 123;
+    const number2 = 234;
+
+    console.log(number + number2); // 계산가능
+
+    let age;
+    age = 20;
+
+    // const age2; // 재할당이 불가능하기 때문에 선언만 하는 건 불가능
+
+    // 변수 선언 시 camleCase 사용 / sql underline_case
+
+    let myFirst = '123';
+
+    console.log(myFirst);
+
+    console.log("내가 선언한 변수 =>", myFirst); // , 한칸 띄어쓰기
+    console.log("내가 선언한 변수 =>"+ myFirst); // + 연결연산자
+    console.log(`내가 선언한 변수 => ${myFirst}`);
+
+    let firstName = 'kim';
+    let lastName = 'gildong';
+    age = 20;
+
+    console.log(`name: ${firstName}${lastName}, age: ${age}`)
+
+    // 변수 기호 없이 사용 가능 (let, const, var)
+    // 선언 기호 없이 사용하면 전역에 영향을 미치므로 가급적 지양
+
+    // 상수 : 한번 선언되면 변경할 수 없는 값
+    // java => final / js => const 대문자 표기
+
+    const MY_FINAL = "SAMSUNG";
+    console.log(MY_FINAL)
+
+    // typeof : 변수의 타입을 확인할 때 사용
+    // typeof 변수명
+
+    console.log(typeof firstName)
+
+</script>
+<script src="../day08/01_script.js"></script>
+<script>
+    console.log(name03);
+</script>
+</html>

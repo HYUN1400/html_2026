@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function03</title>
+</head>
+<body>
+    <h1>함수 내 호출</h1>
+    <!-- 
+        함수 안에서 함수를 호출
+    -->
+    <script>
+        function subFunc(num1, num2){
+            return num1 - num2;
+        }
+
+        function sumFunc(num1, num2){
+            console.log(subFunc(num1, num2)); // subFunc 호출
+            return num1 + num2;
+        }
+
+        console.log(sumFunc(100, 200));
+
+        function func1(p1, p2){
+            return p1 / p2;
+        }
+
+        function func2(p1, p2){
+            return func1(p1, p2);
+        }
+
+        function func3(p1, p2){
+            return func2(p1, p2);
+        }
+
+        console.log(func3(30, 10));
+
+
+        function myFunc(myName){
+            console.log('myFunc fucntion');
+            return `Hello, ${myName}`;
+        }
+
+        function myFuncOld(myName){
+            console.log('myFuncOld fucntion');
+            return `Hello, ${myName}`;
+        }
+
+        console.log(myFunc('arvin'));
+        console.log(myFuncOld('arvin'));
+        console.log(myFuncOld(myFunc('arvin')));
+
+        console.log(myFuncOld(myFunc)); 
+        /*
+            Hello, function myFunc(myName){
+            console.log('myFunc fucntion');
+            return `Hello, ${myName}`;
+        }
+        */
+
+
+        
+    </script>
+</body>
+</html>

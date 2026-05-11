@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+</head>
+<body>
+    <h1>Event</h1>
+    <h3>- 전역개체로서 모든 태그에 객체를 참조시킬 수 있음</h3>
+    <!-- 
+        - a 태그와 button 태그에 이벤트를 참조시켜 클릭에 대한 반응으로 기대할 수 있는 구조를 만드는 것이 일반적
+        - type="button" 을 이용하여 이벤트를 참조
+        - a 태그 > href 속성에 의해 자체 이동(동기화)이 구현되어 있음
+        - a 태그에 이벤트를 부여할 땐 별도의 이동을 막는 코드가 필요
+
+        - 화면 영역의 태그 객체를 document 영역(개체)라고 한다.
+        - DOM(Document Object Model) : 문서 객체 영역
+        - tag => html element
+        - 속성(name, class, id . . .) => attribute
+        - <h1>문자</h1> => 태그 내부의 일반 텍스트 => textnode / innerText
+        - <div><span>이용문의</span></div> => 태그 내부의 태그 => element innerHTML
+
+        property
+        - innerText : element 내부의 글자
+        - innerHTML : element 내부의 html 요소
+        - getElementBy(...) : 해당 요소 자체를 가져올 때 사용 => HTMLCollection 객체로 가져오게 됨.
+        - querySelector('css의 select') : 해당 요소 자체를 가져올 때 사용 => NodeList 객체로 가져오게 됨.
+    -->
+
+    <button 
+        style="width: 100px; height: 40px; border-radius: 10px; cursor: pointer;"
+        onclick="buttonOnClick()"
+    > 
+           나타나요
+    </button>
+
+    <button
+    onclick="eventFunc02('2')">
+        2번 버튼
+    </button>
+
+    <button
+    onclick="eventFunc02('3')">
+        3번 버튼
+    </button>
+
+    <button 
+    id="btn"
+    style="width: 100px; height: 40px; border-radius: 10px; cursor: pointer;"
+    >
+        색 바꿔요
+    </button>
+
+    <button
+    id="test"
+    style="width: 100px; height: 40px; border-radius: 10px; cursor: pointer;"
+    >
+        추가 텍스트
+    </button>
+
+    
+
+    <h1 id="printResult"></h1>
+</body>
+<script>
+    // 1) 버튼에 onClick 이벤트를 달아주는 방법 => 하나의 이벤트만 등록 가능
+    // 2) EventListener 객체 사용 => 여러개의 이벤트를 등록할 수 있음.
+    // 3) 객체를 가져와 객체에 onClick을 다는 방법
+    const h1 = document.getElementById("printResult");
+    const button = document.querySelector('button');
+
+    const buttonOnClick = () => {
+        if(h1.innerText == '') {
+            h1.innerText = '나타나요 🐙';
+            button.style.backgroundColor = 'rgb(0, 0, 0)';
+            button.style.color = 'rgb(255, 255, 255)';
+            button.innerText = '없어져요';
+        } else {
+            h1.innerText = '';
+            button.style.backgroundColor = 'rgb(255, 255, 255)';
+            button.style.color = 'rgb(0, 0, 0)';
+            button.innerText = '나타나요'
+        }
+        
+    }
+
+    document.getElementById('btn').addEventListener("click", () => {
+        h1.style.color = 'rgb(214, 102, 116)';
+    })
+
+    document.getElementById('test').onclick = () => {
+        h1.style.color = 'rgb(0, 0, 0)';
+        h1.innerHTML = `<span class = 'c'>추가 텍스트예요 🐢</span>`
+    }
+
+    const eventFunc02 = (param) => {
+        h1.innerText = `${param}번 버튼 ☀️`
+
+        if(param == '2') {
+            h1.style.color = 'pink';
+        } else if(param == '3') {
+            h1.style.color = 'skyblue';
+        }
+        
+    }
+
+    
+</script>
+</html>

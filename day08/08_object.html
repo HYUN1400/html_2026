@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object</title>
+</head>
+<body>
+    <h1>object(객체)</h1>
+    <h3>- 식별할 수 있는 것을 상세 특징으로 표현한 형식</h3>
+    <!-- 
+        - const 상수로 선언하는 것이 일반적 => 객체의 지속성을 확보하기 위함
+        {key:value}
+
+        - key값은 중복될 수 없다
+        - value는 중복 가능
+        - key는 string 형태로 쓰는 것이 일반적
+        - value는 제한 없음
+
+    -->
+
+    <script>
+        const car = {
+            name: 'myCar',
+            year: 2025,
+            color: 'red'
+        }
+
+        console.log(car);
+
+        console.log(car.name);
+
+        car.door = 4;
+        car.name = 'sonata';
+
+        console.log(car);
+    </script>
+    <script>
+        const me = {
+            firstName: 'peter',
+            lastName : 'parker',
+            age: 16,
+            address: 'Queens',
+            avail : {
+                year: 2025,
+                title: 'homecoming',
+                ver: 'sony',
+                project: 'mark 5',
+                intro: function(){
+                    console.log('객체 내부에서 선언된 함수');
+                    console.log(me.firstName, me.lastName);
+                    return `${this.title} : ${this.ver}`;
+                }
+            },
+            year: 2001
+        }
+
+        console.log(me);
+
+        console.log(me.avail.intro());
+        console.log(me.firstName, me.lastName);
+
+        console.log(me.address);
+
+        console.log(me.avail.title);
+
+        let keyName = 'age';
+
+        console.log(me["hobby"]);
+        console.log(me[keyName]);
+        console.log(me["avail"]["intro"]());
+        console.log(me["avail"].ver);
+
+        console.log('-------------------------------------------')
+    </script>
+    <script>
+        /*
+        const me = {
+            firstName: 'peter',
+            lastName : 'parker',
+            age: 16,
+            address: 'Queens',
+            avail : {
+                year: 2025,
+                title: 'homecoming',
+                ver: 'sony',
+                project: 'mark 5',
+                intro: function(){
+                    console.log('객체 내부에서 선언된 함수');
+                    console.log(me.firstName, me.lastName);
+                    return `${this.title} : ${this.ver}`;
+                }
+            },
+            year: 2001
+        }
+        */
+
+        const singer = {
+            firstName: 'Tom',
+            lastName: 'Morello',
+            age: 61,
+            address: 'NewYork Harlem',
+            playlist : {
+                title01: 'one last dance',
+                title02: 'everything burns'
+                },
+            jukebox : function(p1, p2, p3){
+                console.log(this.playlist.title01, this.playlist.title02)
+            }
+        }
+
+        singer.jukebox();
+        
+    </script>
+</body>
+</html>

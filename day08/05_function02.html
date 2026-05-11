@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function02</title>
+</head>
+<body>
+    <h1>함수의 파라미터와 리턴타입</h1>
+    <!-- 
+        - 파라미터의 개수는 제한이 없으나, 많으면 관리가 어려움
+        - 파라미터의 타입도 제한 X
+        - 파라미터의 변수명은 외부 변수명과 같아도 달라도 상관 X
+        - return 유무에 따라 값을 리턴 받거나 종료할 수 있음
+        - return 위치에 따라 종료 시점을 결정
+    -->
+    <script>
+        let myName = '홍길동';
+
+        function callName(name){
+            let yourName = '김순이';
+            console.log(`파라미터 => ${name}`);
+            console.log(`함수 내부 변수 => ${yourName}`);
+        }
+
+        callName(myName);
+
+        // return 이 있는 함수
+        // num1, num2를 파라미터로 받아 두 수의 덧셈 결과를 리턴
+
+        function sum(num1, num2){
+            return num1 + num2;
+        }
+        let result = sum(10, 20);
+        console.log(result);
+
+        // 표현식 함수: react, js 라이브러리 등에서 많이 사용 됨
+        
+        const myFunc = function(param){
+            return `Hello, ${param}`;
+        }
+        let result01 = myFunc('arvin');
+        console.log(result01);
+
+        // 화살표 함수 (arrow function)
+
+        const arrowFunc = (param1, param2) => {
+            return param1 + param2;
+        }
+        let result02 = arrowFunc(20, 40);
+        console.log(result02);
+
+        const arrowFunc02 = (p1, p2) => (p1 + p2);
+        console.log(arrowFunc02(100,200));
+
+        // 함수 생성
+        // 파라미터로 이름과 취미를 받아 콘솔에 출력
+        // ex) 홍길동은 독서를 좋아합니다
+        // 기본형 / 표현식 / 화살표
+
+        let name = 'peter';
+        let hobby = 'web swing'
+        
+        function profile01(name, hobby){
+            console.log(`${name}은 ${hobby}을 좋아합니다.`)
+        }
+
+        const profile02 = function(name, hobby){
+            console.log(`${name}은 ${hobby}을 좋아합니다.`)
+        }
+
+        const profile03 = (name, hobby) => {
+            console.log(`${name}은 ${hobby}을 좋아합니다.`)
+        }
+
+        profile01(name, hobby);
+        profile02(name, hobby);
+        profile03(name, hobby);
+
+    </script>
+</body>
+</html>
