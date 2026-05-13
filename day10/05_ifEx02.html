@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifEx02</title>
+    <style>
+        * {
+            letter-spacing: -0.04em;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        input {
+            border: 1px solid rgb(161, 221, 83);
+            width: 60px;
+            margin: 0 5px;
+            background-color: rgb(227, 233, 219);
+        }
+
+        input:focus {
+            outline: 1px solid rgb(127, 207, 22);
+        }
+
+        table {
+            text-align: center;
+            padding: 10px;
+            width: 200px;
+            height: 100px;
+            border-radius: 5px;
+            border: 1px solid cfcfcf;
+            box-shadow: 2px 2px 8px #e7e7e7, -2px -2px 8px #ffffff;
+        }
+
+        #result {
+            text-align: center;
+        }
+
+        #result > p:nth-of-type(3) {
+            color: rgb(27, 134, 248);
+            font-weight: 700;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        이름, 국어, 영어, 수학 점수 입력 => 계산 버튼
+        => 합계 / 평균 / 평균 80점 이상이면 합격
+        국어, 영어, 수학 점수가 숫자가 아니거나 공백 / 0~100 사이의 값이 아니라면 alert
+    -->
+
+    <table>
+        <thead>
+            <tr>
+                <td colspan="1" style="font-weight: 700;">이름</td>
+                <td colspan="2"><input type="text" id="name" style="width: 140px;"></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>국어</td>
+                <td>영어</td>
+                <td>수학</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td><input type="text" id="kor"></td>
+                <td><input type="text" id="eng"></td>
+                <td><input type="text" id="math"></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <button onclick="onClickScore()">계산</button>
+
+    <div id="result"></div>
+
+    <!-- SCRIPT -->
+
+    <script>
+        const name = document.querySelector("#name");
+        const btn = document.querySelector("button");
+        const result = document.querySelector("#result");
+        
+        const onClickScore = () => {
+            const kor = document.querySelector("#kor").value;
+            const eng = document.querySelector("#eng").value;
+            const math = document.querySelector("#math").value;
+
+            const korNum = Number(document.querySelector("#kor").value);
+            const engNum = Number(document.querySelector("#eng").value);
+            const mathNum = Number(document.querySelector("#math").value);
+
+            const sum = korNum + engNum + mathNum;
+            const avg = Math.floor(sum / 3);
+
+            let pass = '';
+
+            const isInvalid = () => {
+                if (kor.trim() === '' || eng.trim() === '' || math.trim() === '') return true;
+        
+                if (isNaN(korNum) || korNum < 0 || korNum > 100 ||
+                    isNaN(engNum) || engNum < 0 || engNum > 100 ||
+                    isNaN(mathNum) || mathNum < 0 || mathNum > 100) {
+                    return true;
+                }
+        
+                return false;
+            }
+
+            if (isInvalid()) {
+                alert('제대로 된 값을 입력해주세요!');
+                return;
+            }
+
+            if(avg >= 80) {
+                pass = '합격';
+            } else {
+                pass = '';
+            }
+
+            result.innerHTML = `
+                <p>합계 | ${sum}</p>
+                <p>평균 | ${avg}</p>
+                <p>${pass}</p>
+            `
+        }
+    </script>
+</body>
+</html>

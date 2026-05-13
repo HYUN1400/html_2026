@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>objectEvent</title>
+</head>
+<body>
+    <h1>JS 객체 생성</h1>
+    <fieldset>
+        <legend>나의 소개</legend>
+        이름: <input type="text" id="name" placeholder="name">
+        <br>
+        주소: <input type="text" id="addr" placeholder="address">
+        <br>
+        선호 목록 <br>
+        1. <input type="text" id="favor1"><br>
+        2. <input type="text" id="favor2"><br>
+        3. <input type="text" id="favor3"><br>
+        이메일: <input type="text" id="email">
+        <br>
+        <button onclick="send()">객체로 전송</button>
+        <button onclick="table()">표 출력</button>
+    </fieldset>
+
+    <table id="table" border="1"></table>
+
+    <!-- 
+
+    -->
+
+    <script>
+        const name = document.querySelector("#name");
+        const addr = document.querySelector("#addr");
+        const email = document.querySelector("#email");
+        const favor1 = document.querySelector("#favor1");
+        const favor2 = document.querySelector("#favor2");
+        const favor3 = document.querySelector("#favor3");
+        const tbl = document.querySelector("#table");
+
+        const me = {
+            name: '',
+            address: '',
+            favors: {
+                favor1: '',
+                favor2: '',
+                favor3: ''
+            },
+            email: ''
+        };
+
+        const send = () => {
+
+            
+            me.name = name.value;
+            me.address = addr.value;
+            me.email = email.value;
+            me.favors.favor1 = favor1.value;
+            me.favors.favor2 = favor2.value;
+            me.favors.favor3 = favor3.value;
+        
+            alert("전송되었습니다 🐙");
+        
+        }
+
+        const table = () => {
+            tbl.innerHTML = `
+                <thead><tr><td>이름</td><td>${me.name}</td></tr></thead>
+                <tbody>
+                    <tr>
+                        <td>주소</td>
+                        <td>${me.address}</td>
+                    </tr>
+                    <tr>
+                        <td>선호 리스트</td>
+                        <td>
+                            <ul>
+                                <li>${me.favors.favor1}</li>
+                                <li>${me.favors.favor2}</li>
+                                <li>${me.favors.favor3}</li>
+                            </ul>        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>이메일</td>
+                        <td>${me.email}</td>
+                    </tr>
+                </tbody>
+            `
+        }
+
+    </script>
+</body>
+</html>

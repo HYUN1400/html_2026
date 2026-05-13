@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IF</title>
+</head>
+<body>
+    <h1>조건문</h1>
+    <!-- 
+        if / switch : java와 동일
+        if, if~else, else if
+    -->
+
+    <fieldset style="padding: 20px;">
+        숫자 입력 <input type="text" id="number"> <br>
+        <button id="btn">판별</button>
+        <h2 id="result">
+            <span id="odd">홀수</span>
+            <span style="color: #999999;"> | </span>
+            <span id="even">짝수</span>
+        </h2>
+    </fieldset>
+
+    <script>
+        const input = document.querySelector("#number");
+        const btn = document.querySelector("#btn");
+        const odd = document.querySelector("#odd");
+        const even = document.querySelector("#even");
+
+        btn.addEventListener("click", () => {
+            const num = Number(input.value);
+
+            console.log(num)
+
+            // if(str.trim() === '') => isBlank()
+            if(isNaN(num) || num == 0) {
+                alert('1 이상의 숫자를 입력하세요!')
+                return;
+            }
+
+            if(num % 2 == 0){
+                even.style.color = 'rgb(116,206,224)';
+                odd.style.color = 'rgb(0, 0, 0)';
+            } else {
+                odd.style.color = 'rgb(116,206,224)';
+                even.style.color = 'rgb(0, 0, 0)';
+            }
+        })
+
+    </script>
+</body>
+</html>

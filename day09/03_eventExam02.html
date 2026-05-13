@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventExam02</title>
+</head>
+<body>
+    <fieldset>
+        <legend>할인율 구하기</legend>
+        가격: <input type="text" id="price"> 원 <br>
+        할인율: <input type="text" id="rate"> % <br>
+        <button onclick="calc()">할인가격 계산</button>
+    </fieldset>
+
+    <div id="printResult"></div>
+
+    <input type="text" id="test">
+    <h2 id="testh2"></h2>
+
+<!------------------------ SCRIPT ------------------------>
+    <script>
+        const printResult = document.querySelector("#printResult");
+        
+        const calc = () => {
+            const price = document.querySelector("#price").value;
+            const rate = document.querySelector("#rate").value;
+            const numPrice = Number(price);
+            const numRate = Number(rate);
+
+            printResult.innerHTML = `
+                <h3>가격: ${price}원</h3>
+                <h3>할인율: ${rate}%</h3>
+                <h3>할인금액: ${numPrice * (numRate*0.01)}원</h3>
+                <h1>지불금액: ${price - (numPrice * (numRate*0.01))}원</h1>
+            `
+        }
+
+        const test = document.querySelector("#test");
+        const testh2 = document.querySelector("#testh2");
+
+        test.addEventListener("input", (e) => {
+            testh2.innerText = e.target.value;
+        })
+    </script>
+</body>
+</html>

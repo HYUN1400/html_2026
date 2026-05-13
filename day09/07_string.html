@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string</title>
+</head>
+<body>
+    <h1>
+        string: 가장 많이 다루는 데이터 타입
+    </h1>
+
+    <!-- 
+        - java에서의 string method와 거의 유사함
+        - 문자 데이터는 index(0부터 시작)를 가지고 있음.
+        - 개행문자 <br> 문자열 내부에서는 지양
+        - length: 문자열의 총 길이 (공백도 1글자 처리)
+        - new String(): 가능하지만 거의 사용 X
+    -->
+    <!-- 
+        추출 관련 메서드: substring(), substr(), slice()
+        문자 대체 관련 메서드: replace(str, old, new) => 처음 찾은 값만 변환
+        - trim(): 양쪽 공백 제거
+        - charAt(index) / indexOf(str, 문자)
+        - padStart(str, 길이, 채울문자) / padEnd ...
+        - startWith(str, 문자) / endWith : 문자가 start 혹은 end에 존재하는지 확인
+    -->
+
+    <script>
+        let str = 'apple, banana, orange';
+        // subString / slice(start, end) : start 번지부터 end 번지까지 추출 (end 미포함)
+        // substr(start, count)
+        console.log(str.split(","));
+        console.log(str.slice(0, 5));
+        console.log(str.substring(7, 13));
+        console.log(str.slice(-6)); // 끝에서부터 추출 가능
+
+        console.log("----------------------------------")
+        // 자료형 변수명 . => 자료형에 사용할 수 있는 메서드들 목록 출력
+
+        let str2 = "Hello java world java";
+        // replace => 처음 일치하는 값만 변경
+        console.log(str2.replace('java', 'javaScript'));
+        // replaceAll => 전체 변경
+        console.log(str2.replaceAll('java', 'javaScript'));
+        // replace : 정규표현식 가능
+        // /java/옵션 => i(대소문자 구분x), g(전체검색) ig
+        console.log(str2.replace(/java/g, 'javaScript'));
+
+        let padText = 'abc';
+        console.log(padText.padStart(10,'-'));
+
+        let rNum = '010101-3123456';
+        console.log(rNum.slice(0, 8).padEnd(rNum.length, '*'));
+
+        //성별 : 삼항연산자
+        let id = rNum.charAt(rNum.indexOf("-")+1);
+        console.log((id === '1' || id === '3') ? '남' : '여');
+
+        let fullFilename = '20260512_javascript.String_method.html';
+        // 작성일자만 추출 : 20260512
+        // 파일명 추출 : javascript.String_method
+        // 확장자 추출 : html
+
+        console.log(fullFilename.slice(0, fullFilename.indexOf("_")));
+        console.log(fullFilename.substring(fullFilename.indexOf("_")+1, fullFilename.lastIndexOf(".")))
+        console.log(fullFilename.substring(fullFilename.lastIndexOf(".")+1, fullFilename.length))
+        
+    </script>
+
+</body>
+</html>

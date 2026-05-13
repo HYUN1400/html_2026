@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventInput</title>
+</head>
+<body>
+    <h1>Input 객체 가져오기</h1>
+
+    <!-- 
+        input tag는 속성에 값이 매핑되어 있음.
+        - value 속성으로 값을 가져올 수 있음.
+        <input> => value
+        - checkbox, radio, select > option 태그 내에서 value 속성을 부여해줘야 선택한 값을 가져올 수 있음.
+        - value, innerText 가져오는 값은 모드 string 처리
+        - string 처리된 값을 숫자 형태로 사용하기 위해서는 변환이 필요
+    -->
+
+    <fieldset>
+        <legend>input tag element</legend>
+        name : <input type="text" id="name" placeholder="이름을 입력하세요.">
+        <br>
+        age : <input type="text" id="age" placeholder="나이를 입력하세요.">
+        <br>
+        address : <input type="text" id="addr" placeholder="주소를 입력하세요.">
+
+        <button onclick="clickEvent()">DATA INPUT</button>
+    </fieldset>
+    <h1 id="printResult"></h1>
+    <ul id="ul"></ul>
+
+    <script>
+        const btn = document.querySelector("button");
+        const name = document.querySelector("#name");
+        const age = document.querySelector("#age");
+        const addr = document.querySelector("#addr");
+        const h1 = document.querySelector("#printResult");
+        const ul = document.querySelector("#ul");
+
+        function clickEvent(){
+            ul.innerHTML = `<li>이름: ${name.value}</li>
+                            <br/>
+                            <li>나이: ${age.value}</li>
+                            <br/>
+                            <li>주소: ${addr.value}</li>`
+
+            name.value = '';
+            age.value = '';
+            addr.value = '';
+                            
+            // console.log(age.value+1, typeof age.value);
+            // // Number() : 문자를 숫자로 변환
+            // console.log(Number(age.value)+1, typeof age.value);
+        }
+    </script>
+</body>
+</html>

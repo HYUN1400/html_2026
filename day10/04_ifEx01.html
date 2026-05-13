@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifEx01</title>
+</head>
+<body>
+    <h1>오늘은? ☀️</h1>
+    <button 
+    style="border: none; width: 100px; height: 30px;"
+    onclick="onClickToday()"
+    >today</button>
+    <h1 id="result"></h1>
+
+    <script>
+        const date = new Date();
+        const result = document.querySelector("#result");
+        const btn = document.querySelector('button');
+        const day = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'];
+
+        const onClickToday = () => {
+
+            result.innerText = `${date.toLocaleDateString()} (${day[date.getDay()]})`
+            
+            // let day = '';
+
+            // switch(date.getDay()){
+            //     case 0 : day = '일요일'; break;
+            //     case 1 : day = '월요일'; break;
+            //     case 2 : day = '화요일'; break;
+            //     case 3 : day = '수요일'; break;
+            //     case 4 : day = '목요일'; break;
+            //     case 5 : day = '금요일'; break;
+            //     case 6 : day = '토요일'; break;
+            // }
+        }
+    </script>
+</body>
+</html>

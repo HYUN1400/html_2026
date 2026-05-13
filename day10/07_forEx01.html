@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEx01</title>
+</head>
+<body>
+    <fieldset>
+        <legend>구구단</legend>
+        <input type="text" id="dan"> 단
+        <br>
+        <br>
+        <button id="calc" onclick="calc()">구구단 출력</button>
+        <button id="reset" onclick="reset()">초기화</button>
+
+        <ul id="ul"></ul>
+    </fieldset>
+
+    <script>
+        const ul = document.querySelector("#ul");
+        const btn = document.querySelector("#calc");
+        const resetbtn = document.querySelector("#reset")
+        
+        const calc = () => {
+            let str = '';
+
+            ul.innerHTML = '';
+
+            const dan = document.querySelector("#dan").value;
+
+            if(dan == '' || isNaN(Number(dan))){
+                ul.innerHTML = '';
+                return;
+            }
+            
+            for(let i=1; i<=9; i++){
+                str += `
+                    <li>${dan} * ${i} = ${dan * i}</li>
+                `
+            }
+
+            ul.innerHTML = str;
+        }
+
+        const reset = () => {
+            // ul.innerHTML = '';
+            window.location.reload(); // 새로고침
+        }
+
+    </script>
+</body>
+</html>

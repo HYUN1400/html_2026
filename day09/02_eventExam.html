@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventExam</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+        .container {
+            background-color: #f3f3f3;
+            box-shadow: 2px 2px 8px #cfcfcf, -2px -2px 8px #ffffff;
+            border-radius: 10px;
+            height: 200px;
+            width: 200px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            gap: 20px;
+        }
+
+        .container:hover {
+            box-shadow: 2px 2px 8px #b1b1b1, -2px -2px 8px #ffffff;
+            transition: 0.2s;
+        }
+
+        .box > label {
+            font-size: 15px;
+            font-weight: 700;
+            color:#9dc918;
+        }
+
+        .box > label::after {
+            content: "|";
+            font-weight: 200;
+            color: rgb(182, 182, 182);
+            margin: 0px 5px 0px 5px;
+        }
+
+        .box > input {
+            border: none;
+            border-radius: 10px;
+            height: 20px;
+            width: 70px;
+        }
+
+        .box > input:focus {
+            outline: none;
+        }
+
+        button {
+            border: none;
+            width: 60px;
+            height: 30px;
+            border-radius: 10px;
+            background-color: #d7ff61;
+
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        이름, 국어, 영어, 수학 점수를 입력받아
+        계산 버튼을 클릭하면 ul => li 이름, 점수, 합계, 평균 출력
+    -->
+    
+    <div class="container">
+        <div class="box 1">
+            <label for="name">이름</label>
+            <input type="text" id="name">
+        </div>
+    
+        <div class="box 2">
+            <label for="kor">국어</label>
+            <input type="text" id="kor">
+        </div>
+    
+        <div class="box 3">
+            <label for="eng">영어</label>
+            <input type="text" id="eng">
+        </div>
+    
+        <div class="box 4">
+            <label for="math">수학</label>
+            <input type="text" id="math">
+        </div>
+    </div>
+
+    <button onclick="calc()">계산</button>
+
+    <ul id="ul"></ul>
+
+    <script>
+        const name = document.querySelector("#name");
+        const kor = document.querySelector("#kor");
+        const eng = document.querySelector("#eng");
+        const math = document.querySelector("#math");
+        const ul = document.querySelector("#ul");
+
+        const calc = () => {
+            const sum = Number(kor.value) + Number(eng.value) + Number(math.value)
+
+            ul.innerHTML = `
+                <li>${name.value}</li>
+                <li>국어성적: ${kor.value}</li>
+                <li>영어성적: ${eng.value}</li>
+                <li>수학성적: ${math.value}</li>
+                <br/>
+                <li>합계: ${sum}</li>
+                <li>평균 ${Math.floor(sum / 3)}</li>
+                `
+
+            kor.value = '';
+            eng.value = '';
+            math.value = '';
+        }
+    </script>
+</body>
+</html>

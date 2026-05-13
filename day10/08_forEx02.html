@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEx02</title>
+    <style>
+        #btn {
+            margin-bottom: 30px;
+        }
+
+        #gugu {
+            display: flex;
+            width: 850px;
+            gap: 5px;
+        }
+
+        .container {
+            border: 1px solid black;
+        }
+
+        .container:nth-of-type(even) {
+            background-color: rgb(250, 250, 250);
+        }
+
+        .container > div {
+            padding: 10px;
+            border-bottom: 1px solid grey;
+        }
+
+        .container > div:nth-of-type(9) {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn" onclick="onClickBtn()">구구단 전체 출력</button>
+    <div id="gugu">
+
+    </div>
+    
+    <script>
+        /*
+            콜백함수: 함수 안에서 다른 함수를 호출
+            - 전달 인자(매개변수)로 다른 함수에 전달되는 함수
+            - 콜백함수를 전달할 때 ()를 붙이지 않는 이유 => 함수 자체를 참조하여 다른 함수에게 전달하기 위해서
+            - ()를 붙이면 즉시 실행, 붙이지 않으면 함수 객체 자체가 매개변수로 전달되어 
+              콜백함수가 넘겨받은 함수가 원하는 시점에 직접 실행할 수 있게 된다.
+
+        */
+        const btn = document.querySelector("#btn");
+        const gugu = document.querySelector("#gugu");
+
+        const onClickBtn = () => {
+            let container = '';
+
+            for(let i=1; i<=9; i++){
+                let dan = '';
+
+                for(let k=1; k <=9; k++){
+                    dan += `
+                       <div> ${i} * ${k} = ${i * k} </div>
+                    `
+                }
+
+                container += `
+                    <div class = "container">
+                        ${dan}    
+                    </div>
+                `
+            }
+
+            gugu.innerHTML = container;
+        }
+    </script>
+</body>
+</html>

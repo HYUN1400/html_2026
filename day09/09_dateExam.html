@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dateExam</title>
+</head>
+<body>
+    <fieldset>
+        <legend style="font-weight: 700; letter-spacing: -0.04em;">생년월일 확인</legend>
+        이름: <input type="text" id="name"><br>
+        주민번호: <input type="text" id="rNum"><br>
+        <button>확인</button>
+        <!-- 이름, 생년월일, 나이, 성별 출력 -->
+         <div id="printResult"></div>
+    </fieldset>
+
+    <script>
+        const name = document.querySelector("#name");
+        const rNum = document.querySelector("#rNum");
+        const btn = document.querySelector("button");
+        const printResult = document.querySelector("#printResult");
+
+        btn.addEventListener("click", () => {
+            const birthYear = rNum.value.slice(0, rNum.value.indexOf("-"));
+            const gender = rNum.value.charAt(rNum.value.indexOf("-")+1);
+
+            const yearPrefix = (gender === '1' || gender === '2') ? "19" : "20";
+            const fullYear = Number(yearPrefix + birthYear.slice(0, 2));
+
+            const currentYear = new Date().getFullYear();
+            const age = currentYear - fullYear;
+
+            printResult.innerHTML = `
+                <p>이름 | ${name.value}</p>
+                <p>생년월일 | ${birthYear}</p>
+                <p>나이 | ${age}</p>
+                <p>성별 | ${(gender === '1' || gender === '3') ? '남' : '여'} </p>
+            `
+        })
+
+    </script>
+</body>
+</html>

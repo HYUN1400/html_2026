@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event02</title>
+</head>
+<body>
+    <h1>
+        getElementBy** / querySelector
+    </h1>
+
+    <h1>
+        TEST
+    </h1>
+    <!-- 
+        getElementBy**
+        - ID : 한 화면에서(document) 유일 => 하나의 객체
+        - tagName : 배열
+        - ClassName : 배열
+
+        ex) document.getElementByTagName('h1')[0]
+        => HTMLCollection 객체로 들어옴 : 유사배열
+    -->
+
+    <script>
+        const h1 = document.getElementsByTagName('h1')[0];
+        console.log(h1.innerText);
+
+        const h1Query = document.querySelectorAll('h1');
+        console.log(h1Query[0].innerText);
+
+        // alert : 안내문을 띄우는 창 => 확인 
+        // confirm : 확인(true) / 취소(false) 
+        // prompt : 값을 입력받는 input을 같이 제공 => alert + input
+
+        // alert('HELLO');
+        let con = confirm("pass?");
+        console.log(con);
+
+
+    </script>
+</body>
+</html>

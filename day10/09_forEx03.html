@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEx03</title>
+    <style>
+       @font-face {
+            font-family: 'Aggravo';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+            border: 1px solid black;
+            background-color: rgb(250, 218, 42);
+            font-family: 'Aggravo';
+        }
+
+        button:hover {
+            cursor: pointer;
+            box-shadow: inset 1px 3px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .result {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            letter-spacing: -0.03em;
+        }
+
+        .result > div:nth-of-type(1){
+            font-size: 30px;
+            background-color: rgb(250, 218, 42);
+            border: 1px solid black;
+            color: black;
+            padding: 5px;
+            font-family: 'Aggravo';
+            transition: 0.2s ease;
+        }
+
+        .result > div:nth-of-type(1):hover{
+            transform: scale(1.1);
+            transition: 0.2s;
+        }
+
+        .result > div:nth-of-type(2) {
+            font-size: 17px;
+            background-color: black;
+            color: rgb(250, 218, 42);
+            padding: 5px 30px;
+            font-family: 'Aggravo';
+            transform: rotate(10deg);
+        }
+
+        .result > div:nth-of-type(3){
+            font-size: 17px;
+            background-color: rgb(250, 218, 42);
+            color: black;
+            padding: 5px 30px;
+            border: 1px solid black;
+            font-family: 'Aggravo';
+            transform: rotate(-10deg);
+        }
+
+        .playlists {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            width: 200px;
+            height: 300px;
+
+            color: rgb(250, 218, 42);
+            background-color: black;
+            border: 3px solid rgb(250, 218, 42);
+            transform: rotate(2deg);
+
+            gap: 40px;
+            transition: 0.2s ease;
+        }
+
+        .playlists:hover{
+            transform: scale(1.1);
+            transition: 0.2s;
+        }
+
+        .playlists > div:nth-of-type(1) {
+            font-size: 25px;
+            font-family: 'Aggravo';
+        }
+
+        .playlists > .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-weight: 500;
+        }
+
+        .playlists > .container  div {
+            font-size: 17px;
+        }
+    </style>
+</head>
+<body>
+    <h1>향상된 for</h1>
+    <h3>
+        for in / for of
+    </h3>
+    <!-- 
+        * java
+        for(변수: 리스트){
+            코드;
+        }
+
+        *javaScript
+        for(변수 in 리스트){
+            코드;
+        }
+
+        - for in : object 객체 안의 내용을 탐색할 때 {key:value}
+            for(let key in object){
+                code;
+            }
+        
+        - for of : 배열 안의 내용을 탐색할 때 []
+            for(let value of array){
+                code;
+            }
+    -->
+    <button>BUTTON</button>
+    <div class="result"></div>
+
+    <script>
+        const people = ['tom', 'robert', 'chris', 'sebastian']
+        console.log(people);
+        for(let i = 0; i < people.length; i++){
+            console.log(people[i]);
+        }
+        console.log("----------FOR OF----------")
+        for(let value of people){
+            console.log(value);
+        }
+
+        console.log("----------FOR IN----------")
+        const person = {
+            name: 'tom',
+            age: 30,
+            instagram: '@tomholland2013'
+        }
+        for(let key in person){
+            console.log(person[key]);
+        }
+
+        console.log("----------FOR IN 02----------")
+        const member = {
+            name: 'robert',
+            age: 61,
+            favors: ['burger', 'movie', 'beer']
+        }
+        for(let value of member.favors){
+            console.log(value)
+        }
+
+        console.log("----------/----------")
+
+        const btn = document.querySelector("button");
+        const result = document.querySelector(".result");
+
+        const musician = {
+            name: "Christopher",
+            age: 34,
+            addr: 'denmark',
+            palyList: ['bad', 'dangerously', 'trouble']
+        }
+
+        btn.addEventListener("click", () => {
+            let str = '';
+
+            for(let key in musician){
+                if(!Array.isArray(musician[key])){
+                    str += `<div>${musician[key]}</div>`
+                }
+
+            if(Array.isArray(musician[key])){
+                str += `<div class='playlists'><div> -PLAYLIST- </div> <div class="container">`
+                for(let value of musician[key]){
+                    str += `<div>${value}</div>`
+                }
+                str += `</div></div>`
+            }
+            result.innerHTML = str;
+        }
+        })
+    </script>
+</body>
+</html>

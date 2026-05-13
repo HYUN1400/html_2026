@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alert</title>
+</head>
+<body>
+    <!-- 
+        confirm  
+        확인 버튼을 누르면 printResult 영역에 
+        '버튼이 눌렸습니다' 출력
+        취소 버튼 => '취소하셨습니다'
+    -->
+
+    <h1 id="printResult"></h1>
+
+    <script>
+        const con = confirm("yes or no?")
+        const printResult = document.querySelector("#printResult");
+
+        if(con) {
+            printResult.innerText = '확인을 누르셨습니다 🐙'
+        } else {
+            printResult.innerText = '취소하셨습니다 🐢'
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>math</title>
+</head>
+<body>
+    <h1>수학관련 함수</h1>
+    <!-- 
+        Math.method : 수학 관련한 함수 제공
+        => java와 동일한 함수 제공
+        - Math.round(), Math.floor(), Math.ceil() ...
+        - Math.max(), Math.min() ...
+        - Math.random() : 0(포함) ~ 1(미포함) 난수 리턴
+            => Math.floor(Math.random() * count) + start
+    -->
+
+    <div class="colorBox" style="width: 100px; height: 100px; border: 1px solid black;">
+         <p class="rgb" style="letter-spacing: -0.03em; font-size: 12px; text-align: center; margin-top: 40px; font-weight: 700; background-color: black; color: white;">rgb(255, 255, 255)</p>
+    </div>
+
+    <button class="btn" style="margin-top: 10px; letter-spacing: -0.03em;">랜덤 컬러 버튼</button>
+
+    <script>
+        const colorBox = document.querySelector(".colorBox");
+        const btn = document.querySelector(".btn");
+        const rgb = document.querySelector(".rgb");
+
+        btn.addEventListener("click", () => {
+            const random01 = Math.floor(Math.random() * 256);
+            const random02 = Math.floor(Math.random() * 256);
+            const random03 = Math.floor(Math.random() * 256);
+    
+            colorBox.style.backgroundColor = `rgb(${random01}, ${random02}, ${random03})`;
+            rgb.innerHTML = `<p>rgb(${random01}, ${random02}, ${random03})</p>`
+        })
+
+
+    </script>
+</body>
+</html>

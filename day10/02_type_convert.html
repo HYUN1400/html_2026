@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>type_convert</title>
+</head>
+<body>
+    <h1>타입 변환</h1>
+    <!-- 
+        문자 -> 숫자
+        - Number("숫자로 변환 가능한 문자")
+        - parseInt("정수만") / parseFloat("실수만")
+
+        숫자 -> 문자
+        - 123.toString() 
+
+        문자 -> boolean
+        - Boolean("true")
+
+        boolean -> 문자
+        - String(true)
+
+        숫자 -> boolean
+        - Boolean(1) / Boolean(0)
+
+        boolean -> 숫자
+        - Number(true) ...
+
+        true = 1 / false = 0
+
+
+        boolean
+        - 일반적인 데이터타입 중 값이 있다면 => true
+        - 정확히 정의되지 않은 개념은 모두 => false
+        const str = 'hello';
+        if(str) = true
+
+        const str = '';
+        if(str) = false
+    -->
+    <script>
+        console.log(String(true), typeof String(true));
+        console.log(Boolean(""), Boolean("hello"));
+    </script>
+</body>
+</html>

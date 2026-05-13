@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for</title>
+</head>
+<body>
+    <h1>반복문: for, while, do~while</h1>
+    <!-- 
+        * java와 동일
+        - for: 반복 횟수가 명확할 때 사용
+        - while, do~while : 반복 횟수가 명확하지 않을 때
+
+        - 모든 조건은 true 일 때 반복
+        - 조건식이 계속 true면 무한 루프
+        - 조건식의 값이 false로 바뀌는 구문 필수
+    -->
+    
+    <script>
+        for(let i = 0; i <= 10; i++){
+            console.log(i);
+        }
+
+        console.log("---------------")
+
+        let count = 1;
+        while(count <= 10){
+            console.log(count);
+            count++;
+        }
+
+        // 구구단 3단
+
+        console.log("---------------")
+
+        for(let i = 1; i <= 9; i++){
+            console.log(`3 * ${i} = ${3 * i}`);
+        }
+
+    </script>
+</body>
+</html>
