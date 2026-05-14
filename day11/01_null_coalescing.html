@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>null</title>
+</head>
+<body>
+    <h1>
+        null_coalescing 연산자: null 병합 연산자
+    </h1>
+    <!-- 
+        - 값이 null, undefined 를 판단하여 해당 값의 대체값을 출력
+        - 좌측항이 null or undefined 면 우측값을 출력
+        - ??
+    -->
+    <script>
+        let n; // undefined
+        console.log(n ?? '우측항 출력');
+
+        let n2 = null;
+        console.log(n2 ?? '우측항 출력');
+
+        let n3 = "";
+        console.log(n3 ?? 'blank'); // 공백은 불가능
+        console.log(NaN ?? '우측항 출력') // NaN 불가능
+
+        
+    </script>
+</body>
+</html>

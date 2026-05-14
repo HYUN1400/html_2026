@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array_iteration</title>
+</head>
+<body>
+    <h1>
+        배열은 순환 구조(iteration)
+    </h1>
+    <!-- 
+        java에서는 람다 / 스트림
+        - array.forEach(callback function)
+            => 일반 반복문과 비슷한 형태
+
+        - array.map(callback function)
+            => forEach의 결과를 리턴하여 새로운 배열을 생성 (형태 변화)
+
+        - array.filter(callback function)
+            => map 처럼 수행하면서 비교연산을 통해 true 값만 리턴
+    -->
+
+    <script>
+        const numArr = [1, 2, 3, 4, 5, 6, 7, 8];
+        const strArr = ['t', 'o', 'm', 'h', 'o', 'l'];
+
+        for(let num of numArr){
+            console.log(num);
+        }
+
+        for(let str of strArr){
+            console.log(str);
+        }
+
+        console.log("----------FOREACH----------")
+        numArr.forEach((num) => {console.log(num)})
+        numArr.forEach(function(v, i, a){
+            console.log(v, i , a);
+        })
+        // numArray 값 합계 => forEach
+        let sum = 0;
+        numArr.forEach((num) => {console.log(sum += num)});
+
+        // 이미 만들어져 있는 함수를 콜백으로 호출
+        // invoke callback function
+        function print(v) {
+            console.log(v)
+        }
+        strArr.forEach(print);
+
+        console.log("----------MAP----------")
+        const newNumArr = numArr.map((v, i, a) => {
+            return `${v}, ${i} / ${a}`
+        })
+
+        console.log(newNumArr);
+
+        const newNumArr3 = numArr.forEach((v) => {
+            return `${v}`
+        })
+
+        console.log(newNumArr3);
+
+        // map을 이용하여 numArr v*2 리턴
+        const mulArr = numArr.map((num) => num*2);
+        console.log(mulArr);
+
+        console.log("----------FILTER----------")
+        const filterArr = numArr.filter((n) => n >= 5);
+        console.log(filterArr);
+
+        const oddArr = numArr.filter((n) => n % 2 == 1);
+        console.log(oddArr);
+
+        numArr.filter((n) => n%2 == 1)
+        .forEach((n) => console.log(n));
+
+    </script>
+</body>
+</html>

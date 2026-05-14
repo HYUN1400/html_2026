@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array_iteration02</title>
+</head>
+<body>
+    <h1>
+        array Iteration method : 순환구조에서 사용하는 메서드들
+    </h1>
+    <!-- 
+        - array.reduce(callback function(total, value, index, slef), [init]);
+            => reduce(리듀서): 함수를 싱행하고, 그 결과의 누적값을 리턴
+        - array.every(callback function(value, index, self))
+            => 콜백함수의 리턴 조건에 모든 배열이 만족하면 true를 리턴
+        - array.some(callback function(value, index, slef))
+            => 콜백함수의 리턴 조건에 하나라도 값이 만족하면 true
+        - array.indexOf('str', [start index])
+            => 해당 문자가 존재하면 index 리턴
+        - array.lastIndexOf('str', [start index])
+            => 뒤에서부터 검색
+        - array.find(callback function(value, index, self))
+            => 검색 조건에 만족하는 첫번째 값을 리턴
+        - array.findIndex(callback function(value, index, self))
+            => 검색 조건에 만족하는 첫번째 index를 리턴
+        - Array.from('객체')
+            => 순서가 있거나 순환구조를 가지는 객체를 배열로 변환
+        - array.includes('str')
+            => 배열에 str 값이 있으면 true
+        
+        - array.keys()
+            => index만 배열로 리턴
+        - array.entries()
+            => index:value 구조값을 만들어서 배열에 담아 리턴
+    -->
+
+    <script>
+        const fruits = ['apple', 'banana', 'orange', 'apple', 'mango'];
+        let key = fruits.keys(); 
+        key.forEach((k) => console.log(k))
+
+        let entry = fruits.entries();
+        console.log(entry);
+        entry.forEach((e) => console.log(e));
+
+        let index = fruits.indexOf('apple', 1);
+        console.log(index);
+
+        const arr = [7,5,6,7,8,8,2,4,1,2,3,1,9];
+        let sum = arr.reduce((total, value) => {
+            return total + value
+        });
+        console.log(sum);
+
+        let findArr = arr.find((v) => v > 50);
+        console.log(findArr ?? '없음');
+
+        let even = arr.every((v) => v%2 == 0);
+        console.log(even);
+
+        let odd = arr.some((v) => v%2 == 1);
+        console.log(odd);
+
+        
+    </script>
+</body>
+</html>

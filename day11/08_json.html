@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json</title>
+</head>
+<body>
+    <div><h1>JSON</h1><h2>(Java Script Object Notation)</h2></div>
+    <!-- 
+        많은 양의 데이터를 실시간으로 전달해야 할 때 가장 효율적이고 편리한 데이터 전송 방식
+        - JSON: JavaScript 객체를 구조화된 데이터로 표현하기 위한 문자 기반의 표준 포맷
+        
+        - 화면 <-> 서버  데이터를 전송할 때 일반적으로 사용
+        XML
+        <name>IU</name>
+        <age>20</age>
+
+        JSON
+        {
+            name: 'IU',
+            age: 20
+        }
+
+        - 자바스크립트의 객체 형태를 띄기 때문에 구조 파악이 쉽고, 제작도 쉽다. XML => JSON
+        - 모든 웹 분야에서 화면은 자바 스크립트가 모든 프론트에서 호환
+        - 데이터 수집, 출력하는 용도로 거의 모든 플랫폼에서 사용되고 있음.
+        
+        - object -> string : 원하는 서버로 전송
+        - string -> 각자 서버에서 처리할 수 있는 객체로 변환 (json 라이브러리)
+        
+        - 자바스크립트에서는 JSON 객체를 string으로 변환하고, string을 object로 변환하는 함수 내장
+        
+        JSON.stringify(object) => string 변경 (원하는 서버로 데이터 전송)
+        JSON.parse(string) => object 변경
+    -->
+    <script>
+        const top01 = {
+            '거래상위': [
+                {
+                    name: '삼성전자',
+                    price: 295500,
+                    updown: 11500,
+                    ratio: 3.87
+                },
+                {
+                    name: 'LG씨엔에스',
+                    price: 87400,
+                    updown: 13900,
+                    ratio: 18.91
+                },
+                {
+                    name: '현대무벡스',
+                    price: 43650,
+                    updown: 0,
+                    ratio: 0
+                }
+            ],
+            '상승': [
+                {
+                    name: '삼진제약',
+                    price: 23250,
+                    updown: 5350,
+                    ratio: 29.89
+                },
+                {
+                    name: '나무가',
+                    price: 23600,
+                    updown: 5100,
+                    ratio: 27.57
+                },
+                {
+                    name: '한양디지텍',
+                    price: 35000,
+                    updown: 6600,
+                    ratio: 23.24
+                }
+            ],
+            '하락': [
+                {
+                    name: '메디포스트',
+                    price: 18010,
+                    updown: -4140,
+                    ratio: -18.69
+                },
+                {
+                    name: 'HD현대중공업',
+                    price: 678000,
+                    updown: -55000,
+                    ratio: -7.5
+                },
+                {
+                    name: '온코닉테라퓨틱스',
+                    price: 20750,
+                    updown: -1600,
+                    ratio: -7.16
+                }
+            ],
+            '시가총액 상위': [
+                {
+                    name: '삼성전자',
+                    price: 295500,
+                    updown: 11500,
+                    ratio: 3.87
+                },
+                {
+                    name: 'SK하이닉스',
+                    price: 1977000,
+                    updown: 1000,
+                    ratio: 0.05
+                },
+                {
+                    name: 'SK스퀘어',
+                    price: 1175000,
+                    updown: -15000,
+                    ratio: -1.26
+                }
+            ]
+        }
+
+        console.log(top01);
+
+        let topString = JSON.stringify(top01);
+        console.log(topString);
+
+        let topObject = JSON.parse(topString);
+        console.log(topObject);
+    </script>
+</body>
+</html>

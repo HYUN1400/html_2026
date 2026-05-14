@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array</title>
+</head>
+<body>
+    <h1>
+        ARRAY
+    </h1>
+    <!-- 
+        - java에서의 list, array를 섞어놓은 형태
+        - 크기가 유동적
+        - 표현은 배열처럼 arr[0]
+        - index 보유, 0부터 시작
+        - length 보유 => 배열의 총 길이
+        - const arr = []
+        - const member = [{...}, {...}, {...}] 일반적인 구조
+        - const arr = new Array(1, 2, 3); => 가능은 하지만 잘 사용되지 않음
+        
+    -->
+
+    <script>
+        // 타입 혼용이 가능
+        const myArr = [
+            1, 2, 3, 'a', 'b', 'c', [1, 2, 3], {key: 'value'}
+        ];
+
+        console.log(myArr);
+        console.log(myArr.length);
+        console.log(myArr[0]);
+
+        // 요소의 마지막 번지
+        console.log(myArr[myArr.length-1]);
+        
+        myArr[myArr.length] = 10;
+
+        console.log(myArr);
+
+        myArr[10] = 100;
+        console.log(myArr);
+
+        console.log("-------------------------------------")
+        for(let i = 0; i < myArr.length; i++){
+            console.log(myArr[i] ?? 'blank');
+        }
+
+        console.log("-------------------------------------")
+        for(let a of myArr){
+            console.log(a)
+        }
+
+        
+    </script>
+</body>
+</html>

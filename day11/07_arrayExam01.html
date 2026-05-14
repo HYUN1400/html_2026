@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrayExam01</title>
+</head>
+<body>
+    <h1>
+        가위바위보 게임
+    </h1>
+    <button onclick="onClickRSP()" type="button" id="btn">승률 출력</button>
+    <h3>
+        승률은 👉 <span id="result"></span>% 입니다.
+    </h3>
+    <ol id="ol">
+
+    </ol>
+    <h3 id="h3">
+
+    </h3>
+
+    <!-- SCRIPT -->
+    <script>
+        // com = random / user = random
+        // 0 = 가위 / 1 = 바위 / 2 = 보
+        // 승률 계산 (승 / (10-무승부)) * 100 => 소수 둘째자리까지
+        // ol => com / player 
+        // h3 => win: / draw: / lose:
+        const rsp = ['가위', '바위', '보'];
+
+        const result = document.querySelector("#result");
+        const ol = document.querySelector("#ol");
+        const h3 = document.querySelector("#h3");
+
+        let percentage = 0;
+        
+        
+        const onClickRSP = () => {
+            
+            let olStr = '';
+            let win = 0;
+            let draw = 0;
+            let lose = 0;
+            const com = [];
+            const user = [];
+
+            for(let i = 0; i < 10; i++){
+                const comRandom = Math.floor(Math.random()*3);
+                const userRandom = Math.floor(Math.random()*3);
+
+                com.push(rsp[comRandom]);
+                user.push(rsp[userRandom]);
+
+                olStr += `<li>Player:${rsp[userRandom]} / COM: ${rsp[comRandom]}`
+                
+                if(rsp[comRandom] == '가위'){
+                    switch(rsp[userRandom]){
+                        case '가위' : draw++; olStr += ` → draw </li>`; break;
+                        case '바위' : win++; olStr += ` → win </li>`; break;
+                        case '보' : lose++; olStr += ` → lose </li>`; break;
+                    }
+                }
+
+                if(rsp[comRandom] == '바위'){
+                    switch(rsp[userRandom]){
+                        case '가위' : lose++; olStr += ` → lose </li>`; break;
+                        case '바위' : draw++; olStr += ` → draw </li>`; break;
+                        case '보' : win++; olStr += ` → win </li>`; break;
+                    }
+                }
+
+                if(rsp[comRandom] == '보'){
+                    switch(rsp[userRandom]){
+                        case '가위' : win++; olStr += ` → win </li>`; break;
+                        case '바위' : lose++; olStr += ` → lose </li>`; break;
+                        case '보' : draw++; olStr += ` → draw </li>`;break;
+                    }
+                }
+            }
+            percentage = (win / (10-draw))*100
+
+            ol.innerHTML = olStr;
+            result.innerHTML = percentage.toFixed(2);
+            h3.innerHTML = `win: ${win} | draw: ${draw} | lose: ${lose}`
+        }
+
+    </script>
+</body>
+</html>
