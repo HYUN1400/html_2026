@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regExpEx01</title>
+</head>
+<body>
+    <fieldset>
+        파일명 | <input type="text" id="fileName">
+        <button id="btn" onclick="onClickReg()">확인</button>
+        <br>
+        <span id="warning"></span>
+
+        <h3 id="result"></h3>
+    </fieldset>
+
+    <script>
+        const btn = document.querySelector("#btn");
+        const warning = document.querySelector("#warning")
+        const result = document.querySelector("#result");
+        let input = document.querySelector("#fileName");
+
+        input.addEventListener("input", (e) => {        
+            if(!(/\.[a-zA-Z0-9]+$/.test(e.target.value))){
+                warning.innerText = "확장자 형식을 지켜 입력해주세요.";
+                warning.style.color = 'red';
+                warning.style.fontSize = '11px';
+            } else {
+                warning.innerText = '';
+            }
+
+            if(input.value == ""){
+                warning.innerText = "";
+                result.innerText = "";
+            }
+        })
+        
+        const onClickReg = () => {
+            result.innerText = '';
+            
+            const value = input.value;
+
+            if(value.match(/\.(jpg|jpeg|gif|png|bmp|svg|webp|tiff)$/i)){
+                result.innerText = '정상 이미지 파일입니다.';
+                result.style.color = 'green';
+            } else {
+                result.innerText = '이미지 파일만 가능합니다.';
+                result.style.color = 'red'
+            }
+        }
+    </script>
+</body>
+</html>
