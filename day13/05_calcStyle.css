@@ -1,0 +1,131 @@
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-1Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-2ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-3Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-4Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-5Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-6SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-7Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-9Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+* {
+    font-family: 'Presentation';
+    font-weight: 700;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.printResult {
+    box-sizing: border-box;
+    width: 230px;
+    text-align: end;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #b9e625;
+    box-shadow: 2px 2px 8px #cfcfcf, -2px -2px 8px #ffffff;
+    background-color: #e1fa8f;
+    color: rgb(70, 70, 70);
+}
+
+.area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 250px;
+    height: 300px;
+    justify-content: center;
+
+    gap: 10px;
+}
+
+button {
+    width: 50px;
+    border: 1px solid #cdcdcd;
+    box-shadow: 2px 2px 8px #dadada, -2px -2px 8px #ffffff;
+    background-color: white;
+    color: rgb(85, 85, 85);
+    border-radius: 10px;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    cursor: pointer;
+    background: #f1f1f1;
+}
+
+.result {
+    background-color: rgb(249, 239, 244);
+    border: 1px solid pink;
+}
+
+.result:hover {
+    background-color: rgb(248, 221, 225);
+}
+
+.reset {
+    margin-top: 10px;
+    width: 230px;
+    background-color: #ececec;
+    color: rgb(73, 73, 73);
+    font-size: 15px;
+}
+
+.reset:hover {
+    background-color: #dedede;
+}

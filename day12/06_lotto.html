@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lotto</title>
+</head>
+<body>
+    <fieldset>
+        <legend><h3>SET LOTTO</h3></legend>
+
+        <button id="makeRandom">로또번호 생성</button>
+        <div id="printNum"></div>
+
+        <button id="makeRandom2">당첨번호 생성</button>
+        <div id="printNum2"></div>
+
+        <button id="printResultBtn">당첨여부</button>
+        <h4 id="printResult"></h4>
+    </fieldset>
+
+    <script>
+        const lottoArr = [];
+        const rNumArr = [];
+        let bonus = 0;
+
+        document.getElementById('printResultBtn').addEventListener('click', () => {
+            ranking()
+        })
+
+        document.getElementById('makeRandom').addEventListener('click', () => {
+            // 배열에 기존 값이 있다면 제거
+            // set.clear() : set 비우기
+            // splice(index, count) : index부터 count개 만큼 삭제
+            lottoArr.splice(0);
+            randomNumber(lottoArr, 6);
+            document.getElementById('printNum').innerText = lottoArr;
+        })
+
+        document.getElementById('makeRandom2').addEventListener('click', () => {
+            rNumArr.splice(0);
+            randomNumber(rNumArr, 7);
+            bonus = rNumArr.pop();
+            document.getElementById('printNum2').innerText = `${rNumArr}[${bonus}]`;
+        })
+
+        // 등수 비교
+        // arr.includes('str') => 해당 값이 존재하는지 확인
+        function ranking(){
+            let cnt = 0;
+            lottoArr.forEach(v => {
+                if(rNumArr.includes(v)){
+                    cnt ++;
+                }
+            });
+
+            let print = '';
+            switch(cnt){
+                case 6: lottoArr.includes(bonus) ? print = '2등 당첨!' : print = '1등 당첨!'; break;
+                case 5: print = '3등 당첨!' ; break;
+                case 4: print = '4등 당첨!'; break;
+                case 3: print = '5등 당첨!'; break;
+                default: print = '낙첨되었습니다.';
+            }
+
+            document.getElementById('printResult').innerText = print;
+        }
+
+        function randomNumber(arr, num){
+            // 유저번호 => 6자리
+            // 당첨번호 => 7자리
+            // set -> array   
+
+            const set = new Set();
+            while(set.size < num){
+                let num = Math.floor(Math.random()*10)+1;
+                set.add(num);
+            }
+            set.forEach(v => arr.push(v));
+        }
+    </script>
+</body>
+</html>

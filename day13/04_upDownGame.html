@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upDownGame</title>
+    <style>
+        button {
+            border: none;
+            box-shadow: 2px 2px 3px #cfcfcf, -2px -2px 8px #ffffff;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: white;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #f6f6f6;
+        }
+
+        #compareNum {
+            margin-left: 10px;
+        }
+
+        #reset {
+            background-color: rgb(30, 30, 30);
+            color: white;
+        }
+
+        #reset:hover {
+            background-color: #000000;
+        }
+
+        input {
+            box-sizing: border-box;
+            width: 60px;
+            height: 40px;
+            text-align: center;
+        }
+
+        input:focus {
+            border: none;
+            outline: 1px solid rgb(125, 225, 25);
+        }
+
+        .warning {
+            margin-top: 10px;
+            color: red;
+            font-size: 13px;
+        }
+
+        ul > li {
+            list-style: none;
+            color: #adadad;
+        }
+
+        #result {
+            display: none;
+            width: 240px;
+            height: 40px;
+            background-color: rgb(168, 214, 18);
+            color: white;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        legend {
+            background-color: rgb(168, 214, 18);
+            color: white;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>UPDOWN GAME</legend>
+        <div>
+            <button id="random">랜덤 숫자 생성 버튼</button>
+            <button id="reset" onclick="resetOnClick()">다시 시도</button>
+        </div>
+        <hr>
+        <div>
+            <input type="text" id="myNum">
+            <button id="compareNum">제출</button>
+            <div class="warning"></div>
+            <ul id="pastNums"></ul>
+            <h3 id="result"></h3>
+        </div>
+    </fieldset>
+
+    <script>
+        const random = document.querySelector("#random");
+        const reset = document.querySelector("#reset");
+        const compareNum = document.querySelector("#compareNum");
+        const myNum = document.querySelector("#myNum");
+        const result = document.querySelector("#result");
+        const warning = document.querySelector(".warning");
+        const pastNums = document.querySelector("#pastNums");
+
+        let pastNum = [];
+
+        let randomNum = 0; 
+
+        random.addEventListener('click', () => {
+            randomNum = Math.floor(Math.random()*99)+1;
+
+            warning.innerText = '랜덤 숫자가 생성되었습니다!'
+            warning.style.color = 'blue';
+        })
+
+        let count = 0;
+        let pastNumText = '';
+
+        compareNum.addEventListener('click', () => {
+            if(randomNum == 0){
+                warning.innerText = '아직 랜덤 숫자가 생성되지 않았습니다.'
+                return;
+            }
+
+            if(myNum.value == ''){
+                return;
+            }
+
+
+            warning.innerText = '';
+
+            let myInputNum = Number(myNum.value);
+            count ++;
+
+            pastNum.push(myInputNum);
+
+            pastNumText = '';
+
+            pastNum.forEach((v) => {
+                pastNumText += `<li>${randomNum > v ? '↑' : '↓'} ${v}</li>`
+            })
+
+            result.style.display = 'block';
+
+            if(randomNum == myInputNum) {
+                result.innerText = `정답입니다! (${count}번 째 시도)`
+                compareNum.disabled = true;
+                return;
+            } else if(randomNum > myInputNum) {
+                result.innerText = `더 큰 수 입니다. (${count}번 째 시도)`
+            } else if(randomNum < myInputNum){
+                result.innerText = `더 작은 수 입니다. (${count}번 째 시도)`
+            }
+
+            pastNums.innerHTML = pastNumText;
+            myNum.value = '';
+        })
+
+        const resetOnClick = () => {
+            count = 0;
+            randomNum = 0;
+            myInputNum = 0;
+            pastNum = [];
+            pastNumText = '';
+            pastNums.innerHTML = '';
+            result.innerText = '';
+            myNum.value = '';
+            compareNum.disabled = false;
+            result.style.display = 'none';
+        }
+
+
+    </script>
+</body>
+</html>

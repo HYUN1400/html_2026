@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter</title>
+</head>
+<body>
+    <button id="decrease" onclick="decrease()">-</button>
+    <span class="counter">[ 0 ]</span>
+    <button id="increase" onclick="increase()">+</button>
+
+    <script>
+        // innerText : 태그 안쪽의 글자
+        // textContent : diplay:none (안보여지는 글자도 가져옴)
+
+        const counter = document.querySelector(".counter");
+        const deBtn = document.querySelector("#decrease");
+        const inBtn = document.querySelector("#increase");
+
+        let count = 0;
+
+        const decrease = () => {
+            if(count != 0) {
+                count --;
+            }
+            counter.innerText = `[ ${count} ]`;
+        }
+
+        const increase = () => {
+            count ++;
+            counter.innerText = `[ ${count} ]`;
+        }
+    </script>
+</body>
+</html>

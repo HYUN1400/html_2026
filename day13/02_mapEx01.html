@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mapEx01</title>
+</head>
+<body>
+    <fieldset>
+        <legend>성적표</legend>
+        과목: <input type="text" id="subject"> <br>
+        점수: <input type="text" id="score"> <br>
+        <hr>
+        <button id="add" onclick="addOnClick()">추가</button>
+        <button id="printBtn" onclick="printOnClick()">출력</button>
+        <br>
+        <ul id="ul"></ul>
+        <h3 id="h3"></h3>
+    </fieldset>
+    <script>
+        // 추가 버튼 클릭 시 => map에 과목:점수 추가
+        // 출력 버튼 클릭 시 => ul-li 점수 나열
+        // h3 => 합계 / 평균 / 평균 80점 이상 pass
+        const subject = document.querySelector("#subject");
+        const score = document.querySelector("#score");
+        const add = document.querySelector("#add");
+        const printBtn = document.querySelector("#printBtn");
+        const ul = document.querySelector("#ul");
+        const h3 = document.querySelector("#h3");
+
+        const subMap = new Map();
+
+        const deleteSubject = (key) => {
+            subMap.delete(key);
+
+            render();    
+        }
+
+        const render = () => {
+            let ulText = '';
+
+            subMap.forEach((v, k) => {
+                ulText += `
+                    <li>${k} : ${v} <button onClick="deleteSubject('${k}')">❌</button></li>
+                    
+                `
+            })
+
+            ul.innerHTML = ulText;
+        }
+
+        const addOnClick = () => {
+            subMap.set(subject.value, score.value);
+
+            render();
+
+            subject.value = '';
+            score.value = '';
+        }
+
+        const printOnClick = () => {   
+
+            let sum = 0;
+            let subSum;
+            
+            subMap.forEach((v) => {
+               subSum = (sum += Number(v));
+            })
+
+            h3.innerHTML = `
+                <h4>합계: ${subSum} | 평균: ${(subSum / subMap.size).toFixed(2)} | 
+                    ${(subSum / subMap.size) >= 80 ? 'PASS' : 'FAIL' }   
+                </h4>
+            `
+        }
+        
+
+    </script>
+</body>
+</html>
