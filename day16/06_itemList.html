@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>itemList</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button {
+            width: 50px;
+            height: 30px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 1px 1px 6px #cdcdcd, -1px -1px 3px rgb(237, 237, 237);
+            background-color: white;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: #f3f3f3;
+        }
+
+        .dl {
+            width: 30px;
+            height: 20px;
+            font-size: 10px;
+        }
+
+        input {
+            box-sizing: border-box;
+            height: 30px;
+        }
+
+        input:focus {
+            outline: none;
+            border: 1px solid rgb(72, 197, 225);
+            background-color: #f3f3f3;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        ul > li {
+            display: flex;
+            width: 400px;
+            margin-bottom: 15px;
+            justify-content: center;
+            align-items: center;
+
+            border-bottom: 1px solid pink;
+            padding-bottom: 10px;
+        }
+
+        ul > li > button {
+            margin-left: auto;
+        }
+
+        ul > li::before {
+            content: "□";
+            font-weight: bold;
+            margin: 5px 10px;
+            font-size: 12px;
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h1>✈️ 여행 준비물 점검 목록</h1>
+        <input type="text" class="item">
+        <button type="button" onclick="addList()">추가</button>
+    <div>
+        <ul class="itemlist"></ul>
+    </div>
+
+    <script>
+        const input = document.querySelector("input");
+        const itemlist = document.querySelector(".itemlist");
+        const listMap = new Map();
+        let count = 0;
+
+        const render = () => {
+            itemlist.innerHTML = '';
+
+            let itemlistStr = '';
+
+            listMap.forEach((v, k) => {
+                itemlistStr += `<li><span>${v}</span><button class="dl" onclick="deleteList(${k})">❌</button></li>`;
+            })
+            itemlist.innerHTML = itemlistStr;
+        }
+        
+        const addList = () => {
+            if((input.value).trim() == ''){
+                return;
+            }
+            
+            count++;
+            
+            listMap.set(count, input.value);
+
+            render();
+        
+            input.value = '';
+
+            console.log(listMap);
+        }
+
+
+        const deleteList = (key) => {
+            listMap.delete(key);
+
+            render();
+        }
+    </script>
+</body>
+</html>

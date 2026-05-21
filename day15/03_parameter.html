@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parameter</title>
+</head>
+<body>
+    <h1>JS 파라미터</h1>
+    <!-- 
+        - 함수에서 파라미터 개수는 제한 X
+        - 파라미터의 개수와 상관없이 함수(메서드)명이 같다면 호출 가능
+        - 파라미터의 개수가 불일치하여 값을 받지 못하는 변수가 있다면 undefined 처리
+        - 값을 받아오지 못하는 파라미터가 undefined 처리 되는 것을 방지하기 위해 기본값 설정 가능
+            => optional parameter
+        - 파라미터는 arguments라는 프로퍼티로 파라미터들을 관리
+        - arguments 배열로 담겨서 관리
+        - optional parameter        arguments에 저장되지 않음
+        - optional parameter        다른 파라미터보다 뒤에 있어야 한다.
+
+        - rest parameter: 남는(이외의, 남는 것들) 파라미터
+        - 사용할 파라미터는 일반 파라미터에 저장하고, 나머지 파라미터들을 통합하여 배열로 관리하는 방법
+        - ... : spread 연산자 => 배열, 객체를 복사할 때도 사용
+    -->
+
+    <script>
+        // optional parameter
+        function testFunc(p1, p2, p3, p4=0, p5=0){
+            console.log(p1, p2, p3, p4, p5);
+            console.log(arguments);
+        }
+        testFunc(1, 2, 3);
+
+        function testFunc02(){
+            console.log('parameter X')
+        }
+        testFunc02(1);
+
+        // rest parameter
+        function restFunc(a, b, ...others){
+            let sum = 0;
+            console.log(a, b);
+            console.log(others);
+
+            sum = a+b;
+            for(let arg of others){
+                sum += arg;
+            }
+            console.log(sum);
+        }
+
+        restFunc(5, 10, 2, 7, 4, 8);
+
+        console.log('-------------------------')
+
+        // ...spread 연산자
+        const oldArr = ['a', 'b', 'c', 't', 'h', 'j'];
+        let newArr = [...oldArr];
+
+        console.log(oldArr, newArr);
+
+        let newObj = {...oldArr};
+        console.log(newObj);
+
+        function sum(x, y, z){
+            return x+y+z;
+        }
+
+        let num = [4, 5, 1, 29, 3, 31, 7, 14, 23, 49, 2, 6];
+
+        let a = sum(...num);
+        console.log(a);
+
+        restFunc(...num);
+    </script>
+</body>
+</html>

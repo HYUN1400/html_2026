@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class02</title>
+</head>
+<body>
+    <h1>Car class</h1>
+    <button class="ton">TURN ON</button>
+    <button class="toff">TURN OFF</button>
+    <button class="up">SPEED UP</button>
+    <button class="down">SPEED DOWN</button>
+    <!-- 
+        // private 필드 선언 ES2022
+
+    -->
+
+    <script>
+        class Car{
+            // # => private 기호
+            #power = false; // 시동상태 
+            #speed = 0;
+
+
+            constructor(name, year){
+                this.name = name;
+                this.year = year;
+            }
+
+            // getter / setter
+            get power(){
+                return this.#power;
+            }
+    
+            get speed(){
+                return this.#speed;
+            }
+    
+            set speed(value){
+                this.#speed = value;
+            }
+
+            // 현재상태
+            status(){
+                console.log(`차량명:${this.name} (${this.year}) / power: ${this.#power ? '켜짐' : '꺼짐'}`);
+            }
+    
+            // 시동켜기
+            start(){
+                if(this.#power){
+                    console.log('시동이 이미 켜져 있습니다.')
+                    return;
+                }
+                this.#power = true;
+                console.log('시동이 켜졌습니다.')
+            }
+    
+            // 시동 끄기
+            stop(){
+                if(!this.#power){
+                    console.log('시동이 꺼져 있습니다.')
+                    return;
+                } else if(this.#speed > 0){
+                    console.log('차량을 멈춘 뒤 시동을 꺼주세요.')
+                    return;
+                } 
+                this.#power = false;
+                console.log('시동이 꺼졌습니다.')
+                
+            }
+    
+            // speedUP
+            speedUp(){
+                if(!this.#power) {
+                    console.log('시동이 꺼져 있습니다.')
+                    return;
+                }
+                this.#speed += 10;
+                console.log('현재속도:', this.#speed);
+            }
+    
+            // speedDown
+            speedDown(){
+                if(!this.#power){
+                    console.log('시동이 꺼져 있습니다.')
+                    return;
+                } else if(this.#speed == 0){
+                    console.log('속도를 더이상 줄일 수 없습니다.')
+                    return;
+                }
+                this.#speed -= 10;
+                console.log('현재속도:', this.#speed);
+            }
+        }
+
+        const ton = document.querySelector(".ton");
+        const toff = document.querySelector(".toff");
+        const up = document.querySelector(".up");
+        const down = document.querySelector(".down");
+
+        const myCar = new Car('sonata', '2024');
+        myCar.status();
+
+        ton.addEventListener('click', () => {
+            myCar.start();
+        })
+
+        toff.addEventListener('click', () => {
+            myCar.stop();
+        })
+
+        up.addEventListener('click', () => {
+            myCar.speedUp();
+        })
+
+        down.addEventListener('click', () => {
+            myCar.speedDown();
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>distructing</title>
+</head>
+<body>
+    <h1>해체(Distructing), 펼침(Spread)</h1>
+    <h4>: 자바스크립트에서 데이터를 좀 더 유연하게 사용하기 위한 문법</h4>
+
+    <script>
+        // distructing
+        let arr = ['t','o','m','h','o','l'];
+        let first01 = arr[0];
+
+        // 옵셔널 파라미터도 가능
+        let [first, second, third, fourth, fifth, sixth] = arr;
+        console.log(first, second, third, fourth, fifth, sixth);
+    
+        // rest 파라미터도 가능
+        let [one, two, three, ...others] = arr;
+        console.log(one, two, three, others);
+
+        // data exchange (데이터 값 상호교환)
+        let html = 89;
+        let java = 100;
+        console.log(html, java);
+
+        [html, java] = [java, html];
+        console.log(html, java);
+
+        const labtop = {
+            title: 'apple MacBook Pro M1',
+            won: 2000000,
+            cpu: 'M1',
+            ram: '8GB',
+            ssd: '256GB',
+            display: 'retina',
+            touchbar: true,
+            core: '8core'
+        }
+
+        console.log(labtop.cpu, labtop.ram);
+
+        let {cpu, ram} = labtop;
+        console.log(cpu, ram);
+
+        let {display, thunderbolt = '2ea'} = labtop;
+        console.log(display, thunderbolt);
+
+        // won 키 값을 price 라는 이름으로 가져오기
+        let propName = 'won';
+        let {[propName] : price} = labtop;
+        console.log(price);
+    </script>
+</body>
+</html>

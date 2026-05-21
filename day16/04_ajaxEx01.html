@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajaxEx01</title>
+    <style>
+        ul {
+            list-style: none;
+            padding: 10px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            letter-spacing: -0.03em;
+            border-bottom: 1px solid pink;
+        }
+
+        li::before {
+            content: '■';
+            color: pink;
+            font-size: 11px;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">데이터 가져오기</button>
+    <ul id="ul">
+
+    </ul>
+
+    <script>
+        const btn = document.querySelector("#btn");
+        const ul = document.querySelector("#ul");
+
+        btn.addEventListener('click', async () => {
+            // await fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
+            await fetch ('https://jsonplaceholder.typicode.com/todos')
+            .then(res => res.json())
+            .then(re => trueTodos(re))
+            .catch(error => console.log(error))
+        })
+
+        // const trueTodos = (re) => {
+        //     const trues = re.map((r) => `<li>${r.title}</li>`).join("");
+        //     ul.innerHTML = trues;
+        // }
+
+        const trueTodos = (re) => {
+            const limited = re.slice(0, 5);
+            const trues = limited.map((re) => `<li>${re.title}</li>`).join("");
+            ul.innerHTML = trues;
+        }
+
+    </script>
+    
+</body>
+</html>

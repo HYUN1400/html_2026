@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajaxEx02</title>
+    <link rel="stylesheet" href="../day16/05_ajaxEx02_style.css">
+</head>
+<body onload="squad()">
+    <header class="header"></header>
+    <div class="script">MEMBERS</div>
+    <section class="section">
+    </section>
+    <span class="copyright">©marvel comics</span>
+
+    <script>
+        // document.addEventListener("DOMContentLoaded", () => {
+
+        // })
+
+        const header = document.querySelector(".header");
+        const section = document.querySelector(".section");
+
+        const squad = async () => {
+            let headerStr = '';
+            let sectionStr = '';
+
+            const response = await fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+            const datas = await response.json();
+
+            const squadName = datas.squadName;
+            const homeTown = datas.homeTown;
+            const formed = datas.formed;
+            
+            headerStr = `
+                <div>${squadName}</div>
+                <span>${homeTown} | ${formed}</span>
+            `
+
+            header.innerHTML = headerStr;
+
+            const members = datas.members;
+            const powers = members.map((power) => power.powers);
+
+            for(let i = 0; i < 3; i++){
+                sectionStr += `
+                    <div class="container">
+                    <div class='name'>${members[i].name}</div>
+                    <div class='identity'>${members[i].secretIdentity}</div>
+                    <div class='age'>${members[i].age}</div>
+                `
+                sectionStr += `<ul>`;
+
+                for(let k = 0; k < powers[i].length; k++){
+                    sectionStr += `
+                        <li>${powers[i][k]}</li>
+                    `
+                }
+
+                sectionStr += `</ul></div>`;
+            }
+
+            section.innerHTML = sectionStr;
+
+        }
+
+
+    </script>
+</body>
+</html>

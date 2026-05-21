@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classEx02</title>
+</head>
+<body>
+    <h1>ClassEx02</h1>
+
+    <script>
+        // 계좌 myAccount | yourAccount
+        // 1) 객체(Object)를 사용하여 생성
+        const myAccount02 = {
+            name: 'MY',
+            balance: 100000
+        }
+
+        const yourAccount02 = {
+            name: 'YOUR',
+            balance: 50000
+        }
+
+        
+
+
+        // 2) class로 생성
+        // - name, balance
+        // - deposit(입금) / withdraw(출금) / transfer(송금)
+
+        const allAccounts = [];
+
+        class Account{
+
+            constructor(name, balance){
+                this.name = name;
+                this.balance = balance;
+            }
+
+            deposit(amount){
+                if(isNaN(amount)){
+                    console.log('입금할 금액을 입력해주세요.')
+                } else {
+                    this.balance += amount;
+                    console.log(`입금이 완료되었습니다. | 잔액: ${this.balance}`);
+                }
+            }
+
+            transfer(name, amount){
+                const target = allAccounts.find((v) => v.name == name);
+
+                if(this.balance < amount){
+                    console.log('잔액이 부족합니다.')
+                    return;
+                }
+
+                if(target){
+                    target.balance += amount;
+                } else {
+                    console.log('계좌를 찾을 수 없습니다.')
+                    return;
+                }
+
+                this.balance -= amount;
+                console.log(`송금이 완료되었습니다. | 잔액: ${this.balance}`);
+            }
+
+            withdraw(amount){
+                if(this.balance >= amount){
+                    this.balance -= amount;
+                    console.log(`출금이 완료되었습니다. | 잔액: ${this.balance}`)
+                } else {
+                    console.log('잔액이 부족합니다.')
+                }
+            }
+
+            confirm(){
+                console.log(`계좌이름: ${this.name} | 잔액: ${this.balance}`);
+            }
+        }
+
+        const myAccount = new Account('MY', 100000);
+        allAccounts.push(myAccount);
+        const yourAccount = new Account('YOUR', 50000);
+        allAccounts.push(yourAccount);
+
+        myAccount.transfer('YOUR', 58000);
+        yourAccount.confirm();
+
+    </script>
+</body>
+</html>

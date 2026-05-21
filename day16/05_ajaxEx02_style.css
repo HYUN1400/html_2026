@@ -1,0 +1,213 @@
+@font-face {
+    font-family: 'Taebaek';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/TAEBAEKfont.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=BBH+Bogle&display=swap');
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-6SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+
+@font-face {
+    font-family: 'StrongArmy';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.1/ROKAMedium.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'StrongArmy';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.1/ROKABold.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ReperipointOblique';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ReperipointOblique';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackObliqueA.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* CSS */
+
+body {
+    padding-top: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    min-width: 700px;
+
+    background-image: url(../resource/51992596096_1facfa3d49_b.jpg);
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    width: 95%;
+    height: 180px;
+    background-color: #D50010;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px 10px 0px 10px;
+    box-shadow: inset 1px 1px 3px rgb(136, 0, 0), 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+header > div {
+    box-sizing: border-box;
+
+    font-family: 'Taebaek';
+    font-weight: 900;
+    font-size: 55px;
+    color: white;
+    letter-spacing: -0.05em;
+    padding: 10px;
+
+    border: 5px solid white;
+
+    box-shadow: inset 1px 1px 3px #650008, inset -1px -1px 2px rgb(100, 3, 3);
+    text-shadow: -1px -1px 2px #4e0007;
+}
+
+header > span {
+    font-family: 'Paperozi';
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: white;
+}
+
+
+section {
+    display: flex;
+    justify-content: space-between;
+    width: 93%;
+    height: auto;
+    gap: 10px;
+}
+
+.script {
+    margin: 8px 0px 20px 0px;
+    background-color: #D50010;
+    padding: 10px 30px;
+    font-family: 'Taebaek';
+    color:white;
+    transform: skewX(-10deg);
+
+    text-shadow: -1px -1px 2px #4e0007;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap:nowrap;
+    align-items: center;
+    box-sizing: border-box;
+    gap: 5px;
+
+    width: 33%;
+    height: auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+
+
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+
+    transition: all 0.4s ease; 
+}
+
+.container:hover {
+    background-color: white;
+    /* height: 320px; */
+}
+
+/* .container .identity, .container .age, .container ul {
+    opacity: 0;
+    transition: opacity 0.3s ease; 
+}
+
+.container:hover div, .container:hover ul {
+    opacity: 1;
+} */
+
+.container > ul {
+    padding: 0;
+    list-style: none;
+}
+
+.container > ul > li {
+    margin-bottom: 8px;
+    font-family: 'ReperipointOblique';
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.container > ul >li::before{
+    content: "■";
+    font-size: 11px;
+    margin-right: 5px;
+    color: #D50010;
+}
+
+.name {
+    box-sizing: border-box;
+    font-family: 'Taebaek';
+    font-size: 18px;
+    padding: 7px;
+    margin-bottom: 10px;
+    border: 3px solid #D50010;
+    color: #D50010;
+    text-align: center;
+}
+
+
+.identity{
+    font-family: 'ReperipointOblique';
+    font-weight: 700;
+    color: #F6F6F6;
+    transition: 0.2s ease;
+}
+
+.identity:hover{
+    color: rgb(50, 50, 50);
+}
+
+.age{
+    font-family: 'ReperipointOblique';
+    font-weight: 700;
+    font-size: 12px;
+    color: rgb(160, 160, 160);
+}
+
+.copyright {
+    position: absolute;
+    right: 27px;
+    bottom: 70px;
+
+    font-family: 'Paperozi';
+    font-size: 12px;
+    color: #D50010;
+
+    background-color: white;
+    padding: 5px;
+    box-shadow: inset 1px 1px 1px rgb(136, 0, 0), 2px 2px 5px rgba(0, 0, 0, 0.3);
+}

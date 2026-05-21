@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tryEx01</title>
+</head>
+<body>
+    <fieldset>
+        숫자: <input type="text" id="number">
+        <button id="printBtn">PRINT</button>
+        <h3 id="printResult"></h3>
+    </fieldset>
+    <script>
+        // input에 숫자만 들어올 수 있도록 try~catch로 체크
+        // isNaN => 숫자만 입력해주세요, throw 에러처리
+        // 숫자가 입력되면 *2한 결과를 result 출력
+
+        const number = document.querySelector("#number");
+        const printBtn = document.querySelector("#printBtn");
+        const printResult = document.querySelector("#printResult");
+
+        printBtn.addEventListener('click', () => {
+            try {
+                const value = number.value.trim();
+
+                if (value === '' || isNaN(Number(value))) {
+                    throw new Error('숫자만 입력해주세요.');
+                }
+                printResult.style.color = 'black';
+                printResult.innerText = `${Number(value) * 2}`;
+
+            } catch (err) {
+                printResult.style.color = 'red';
+                printResult.innerText = `${err.name} | ${err.message}`;
+            }
+        });
+    </script>
+</body>
+</html>

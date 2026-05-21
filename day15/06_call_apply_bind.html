@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call_apply_bind</title>
+</head>
+<body>
+    <h1>call, apply, bind</h1>
+    <h4>: 함수를 호출하는 방법</h4>
+    <!-- 
+        함수를 호출하는 방법
+        1) 함수명() => 함수명 뒤에 ()를 붙여 호출하는 방법
+        2) call, apply 하는 방법
+            => 함수명.call(this, params...);
+                this: 호출하려는 함수 주체(대상) => 자신의 함수면 null 
+            => 함수명.apply(this, [params...])
+
+            - call을 써서 this를 호출한다면 다른 객체의 파라미터나 메서드를 자신의 것처럼 사용 가능
+            - this는 전역객체의 window로 정해져 있다
+            - 몇가지 방법으로 window를 다른 것으로 바꿀 수 있음.
+            
+            - bind는 함수가 가리키는 this만 바꾼 뒤 호출하지 않음
+            - this를 정의하고 그 함수를 복사하여 새로운 함수를 만들어 리턴
+    -->
+    <script>
+        const example = function(a, b, c){
+            return a + b + c;
+        }
+
+        let a = example(1, 2, 3);
+        let b = example.call(null, 1, 2, 3);
+        let c = example.apply(null, [1, 2, 3]);
+        console.log(a, b, c);
+
+        const obj = {
+            string: 'zero',
+            yell: function(){
+                console.log(this.string);
+            }
+        }
+
+        const obj02 = {
+            string: 'what'
+        }
+
+        obj.yell();
+        obj.yell.call(obj02); // this의 값을 변경
+
+        const kimObj = {
+            name: 'kim',
+            first: 20,
+            second: 30
+        }
+
+        function sum(num){
+            return num + this.first + this.second;
+        }
+
+        console.log(sum.call(kimObj, 1000));
+
+        //유사배열 (array-like object)
+        /*  배열처럼 인덱스와 length 프로퍼티를 가지고 있지만 배열이 아닌 형태
+            HTMLCollection, NodeList, arguments, 문자열 ...
+            => 배열 메서드 사용 불가
+            => 사용하기 위해서 Array.from() => 유사배열을 실제 배열로 변환
+
+            유사배열 구별방법
+            - 객체가 length 프로퍼티를 가지고 있고, key가 숫자(index) 로 되어있는 경우 가능성 多
+        */
+
+        function testFunc(p1, p2, p3){
+            console.log(arguments);
+            console.log(typeof arguments);
+            // console.log(arguments.join(",")) --> 사용 불가
+            console.log(Array.prototype.join.call(arguments))
+        }
+
+        testFunc(1, 2, 3);
+
+        console.log("---------------------------")
+
+        // bind
+        const bindObj = {
+            string: 'zero',
+            yell: function(){
+                console.log(this.string)
+            }
+        }
+
+        const bindObj02 = {
+            string: 'what'
+        }
+
+        
+    </script>
+</body>
+</html>

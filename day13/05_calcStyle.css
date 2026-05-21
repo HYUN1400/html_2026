@@ -82,6 +82,8 @@
     box-shadow: 2px 2px 8px #cfcfcf, -2px -2px 8px #ffffff;
     background-color: #e1fa8f;
     color: rgb(70, 70, 70);
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
 
 .area {

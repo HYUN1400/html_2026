@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class03</title>
+</head>
+<body>
+    <!-- 
+        생성자 함수 : 클래스를 함수화
+        일반 함수와 생성자 함수는 큰 차이가 없음.
+        
+        - 생성자 함수 > 반드시 new 키워드
+        - 첫 글자가 대문자
+    -->
+
+    <script>
+        // 생성자 함수
+        class PersonClass {
+            constructor(first, last, age, addr){
+                this.firstName = first;
+                this.lastName = last;
+                this.age = age;
+                this.address = addr;
+            }
+            get personInfo(){
+                return `${this.firstName}${this.lastName} (${this.age}) / ${this.address}`
+            }
+
+            
+        }
+
+        const me = new PersonClass('kim', 'minji', 20, 'suwon');
+        console.log(me);
+        console.log(me.personInfo);
+
+        // 일반 함수로 변환
+        function personObject(first, last, age, addr){
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.address = addr;
+            this.getPersonInfo = function(){
+                return `${this.firstName}${this.lastName} (${this.age}) / ${this.address}`
+            }
+        }
+
+        const my = new personObject('peter', 'parker', 15, 'queens');
+        console.log(my);
+    </script>
+</body>
+</html>

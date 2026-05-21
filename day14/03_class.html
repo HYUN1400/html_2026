@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+<body>
+    <h1>class</h1>
+    <h4></h4>
+    <!-- 
+        객체의 구조를 표준화 시켜 관리를 쉽게 하기 위한 방법
+        일반 자바스크립트의 페이지에서는 잘 사용되지 않음.
+        => 대형 프로젝트에서 체계화하기 위해서 사용
+
+        1) 객체 구조 관리가 편함
+        2) 유지보수가 쉬움
+        3) typeScript 프로젝트에서 많이 사용
+    -->
+    <!-- 
+        클래스 생성 기본 문법
+        class 클래스명{
+            // 생성자 => 1개만 가능
+            constructor(param){
+                멤버변수 정의
+            }
+            // 메서드 정의
+            methodName(param){
+                ...
+            }
+            // getter | setter 
+            get name(){
+                return this.name;
+            }
+            set name(value){
+                this.name = value;
+            }
+        }
+
+        new 클래스명(); // 생성자로 객체 생성 
+    -->
+
+    <script>
+        class Car{
+            // 생성자는 1개만 가능
+            constructor(name, year){
+                this.name = name;
+                this.year = year;
+                this.model = '';
+            }
+        }
+
+        const myCar1 = new Car('sonata', 2024);
+        myCar1.model = 'XG';
+        console.log(myCar1);
+
+        const myCar2 = new Car();
+        console.log(myCar2);
+
+        const myCar3 = new Car();
+        myCar3.name = '아반떼';
+        myCar3.year = 2026;
+        myCar3.model = 'XD';
+        myCar3.color = 'black';
+        console.log(myCar3);
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classEx01</title>
+</head>
+<body>
+    <!-- 
+        class 로 user 생성
+        - 생성자로 name, birth 받아서 멤버변수로 저장
+        - get age() : 나이 리턴 오늘날짜연도 - 생년월일연도
+        - status() : 성인 / 미성년자 => 콘솔출력
+    -->
+
+    <script>
+        class User{
+            constructor(name, birth){
+                this.name = name;
+                this.birth = String(birth);
+            }
+
+            get age(){
+                // const fullYear = Number(this.birth.slice(0, 4));
+                const fullYear = new Date(this.birth).getFullYear();
+                const currentYear = new Date().getFullYear();
+
+                return currentYear - fullYear;
+            }
+
+            status(){
+                if(this.age >= 18){
+                    console.log(`${this.name}님은 ${this.age}세 성인입니다.`)
+                } else {
+                    console.log(`${this.name}님은 ${this.age}세 미성년자입니다.`)
+                }
+            }
+        }
+
+        const user01 = new User('강민호', '1986'); 
+        user01.status();
+
+        const user02 = new User('김민지', '2011');
+        user02.status();
+
+        const user03 = new User('장찬희', '2007');
+        user03.status();
+
+    </script>
+</body>
+</html>

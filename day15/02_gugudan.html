@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gugudan</title>
+    <style>
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+        }
+
+        button {
+            background-color: rgb(193, 228, 247);
+            color: rgb(0, 0, 0);
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button:hover {
+            background-color: rgb(175, 215, 236);
+            cursor: pointer;
+        }
+
+        input {
+            background-color: rgb(243, 243, 243);
+            border: 1px solid rgb(224, 224, 224);
+            vertical-align: middle;
+        }
+        input:focus{
+            outline: none;
+            background-color: rgb(230, 241, 247);
+        }
+
+        ol {
+            list-style: none;
+            font-weight: 600;
+        }
+
+        li::before {
+            content: "👉";
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>구구단게임</h1>
+    <fieldset>
+        <button type="button" id="startBtn" onclick="onClickExam()">문제 출제</button>
+        <ol id="q"></ol>
+        <button id="compareBtn" onclick="onClickAnswer()">정답 확인</button>
+        <h3 id="print"></h3>
+    </fieldset>
+
+    <script>
+        const startBtn = document.querySelector("#startBtn");
+        const q = document.querySelector("#q");
+        const compareBtn = document.querySelector("#compareBtn");
+        const print = document.querySelector("#print");
+        let questions = [];
+        let isCompared = false;
+
+        class Gugu {
+            constructor(num1, num2){
+                this.num1 = num1;
+                this.num2 = num2;
+                this.answer = num1 * num2;
+            }
+        }
+
+        const onClickExam = () => {
+            isCompared = false;
+
+            questions = [];
+            print.innerText = '';
+
+            let qStr = '';
+
+            for(let i = 0; i < 10; i++){
+                let random1 = Math.floor(Math.random()*8)+2;
+                let random2 = Math.floor(Math.random()*9)+1;
+                let answer;
+
+                qStr += `<li> ${random1} × ${random2} ❓ <input type="text" id='${i}' autocomplete="off"> </li>`;
+                
+                questions.push(new Gugu(random1, random2));
+            }
+
+            q.innerHTML = `${qStr}`
+            console.log(questions);
+        }
+
+        // {once: true} => 이벤트가 트리거 될 때 리스너를 자동으로 제거
+        const onClickAnswer = () => {
+            let compare = '';
+            let correct = 0;
+            let wrong = 0;
+
+            if(!isCompared){
+                for(let i = 0; i < 10; i++){
+                    let input = document.getElementById(String(i));
+    
+                    if(Number(input.value) === questions[i].answer){
+                        compare = `${input.value} ⭕`
+                        input.style.backgroundColor = 'rgb(212, 231, 241)'
+                        correct ++;
+                    } else {
+                        compare = `${input.value} ❌`
+                        input.style.backgroundColor = 'rgb(222, 153, 153)'
+                        wrong ++;
+                    }
+    
+                    input.value = compare;
+                }
+    
+                print.innerText = `
+                    정답: ${correct} | 오답: ${wrong} | 정답률: ${(correct * 10)} %
+                `
+            } else {
+                return;
+            }
+
+            isCompared = true;
+        }
+    </script>
+</body>
+</html>
