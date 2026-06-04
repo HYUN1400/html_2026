@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyEvent</title>
+</head>
+<body>
+    <h1>keyEvent</h1>
+    <!-- 
+        keyDown / keyPress / keyUp
+
+        &nbsp; => 줄바꿈이 일어나지 않는 공백
+    -->
+    <hr>
+
+    <h2>■ keyDown</h2>
+    <h3>e.type : [<span id="type1"></span>]&nbsp;
+        e.key : [<span id="key1"></span>] &nbsp; 
+        e.code : [<span id="code1"></span>] &nbsp; 
+    </h3>
+
+    <hr>
+
+    <h2>■ keyPress</h2>
+    <h3>e.type : [<span id="type2"></span>] &nbsp;
+        e.key : [<span id="key2"></span>]&nbsp; 
+        e.code : [<span id="code2"></span>] &nbsp; 
+    </h3>
+
+    <hr>
+
+    <h2>■ keyUp</h2>
+    <h3>e.type : [<span id="type3"></span>] &nbsp;
+        e.key : [<span id="key3"></span>] &nbsp; 
+        e.code : [<span id="code3"></span>] &nbsp; 
+    </h3>
+
+    <hr>
+
+    <input type="text" id="str">
+
+    <script>
+        const type1 = document.querySelector("#type1");
+        const type2 = document.querySelector("#type2");
+        const type3 = document.querySelector("#type3");
+
+        const key1 = document.querySelector("#key1");
+        const key2 = document.querySelector("#key2");
+        const key3 = document.querySelector("#key3");
+
+        const code1 = document.querySelector("#code1");
+        const code2 = document.querySelector("#code2");
+        const code3 = document.querySelector("#code3");
+
+        const str = document.querySelector("#str");
+
+        str.addEventListener('keydown', (e) => {
+            type1.innerText = e.target.value;
+            key1.innerText = e.key;
+            code1.innerText = e.code;
+        })
+
+        str.addEventListener('keypress', (e) => {
+            type2.innerText = e.type;
+            key2.innerText = e.key;
+            code2.innerText = e.code;
+        })
+
+        str.addEventListener('keyup', (e) => {
+            type3.innerText = e.type;
+            key3.innerText = e.key;
+            code3.innerText = e.code;
+        })
+    </script>
+</body>
+</html>

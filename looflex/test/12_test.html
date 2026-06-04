@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화 목록</title>
+    <style>
+        .category {
+            cursor: pointer;
+
+            width: 100px;
+            height: 40px;
+            background-color: #000;
+            color: white;
+
+            border-radius: 5px;
+
+            line-height: 40px;
+            text-align: center;
+        }
+
+        .genres-modal {
+            visibility: hidden; 
+            opacity: 0;
+            
+            position: fixed;
+            top: 50px;
+            display: flex; 
+            gap: 15px;
+
+            background-color: rgb(255, 142, 81);
+
+            color: white;
+            
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+
+            cursor: pointer;
+        }
+
+        .genres-modal > div:hover {
+            color: #666666;
+        }
+
+.genres:hover .genres-modal {
+    visibility: visible;
+    opacity: 1;
+}
+
+    </style>
+</head>
+<body>
+    <div class="pagination">
+        <button onclick="paginations(1)">1</button>
+        <button onclick="paginations(2)">2</button>
+        <button onclick="paginations(3)">3</button>
+        <button onclick="paginations(4)">4</button>
+        <button onclick="paginations(5)">5</button>
+    </div>
+    
+    <div class="button" onclick=""></div>
+
+    <div class="genres">
+        <div class="category">장르</div>
+        <div class="genres-modal"></div>
+    </div>
+
+    <div>
+        <input type="text" placeholder="검색어를 입력하세요."> <button class="search">검색</button>
+    </div>
+
+
+    <script>
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYjExN2NlZmMwY2Y0YWQ0ZGUwMzA4MDA3MzlmY2U0YiIsIm5iZiI6MTc3OTc2MDUwOC45MDQsInN1YiI6IjZhMTRmZDdjODdjZTExYjc4OTQwZTNkNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.h09fsP3yiOtN0WcPdjzEQVEuoSheGw8oxt-aUMLUGFU' // 본인의 API 키를 입력하세요
+            }
+        };
+
+        // serach test
+        const input = document.querySelector("input");
+        const searchbtn = document.querySelector(".search");
+
+        const search = async (query) => {
+            const response = await fetch(`https://api.themoviedb.org/3/search/movie?include_adult=false&language=ko-KR&query=${encodeURIComponent(query)}`, options)
+            const datas = await response.json();
+            console.log(datas.results);
+        }
+
+        searchbtn.addEventListener('click', () => {
+            const inputValue = input.value;
+
+            search(inputValue);
+        })
+
+
+
+        // genres test
+
+        const genres = document.querySelector(".genres");
+        const genresModal = document.querySelector(".genres-modal");
+        let isLoaded = false;
+
+
+
+        genres.addEventListener("mouseenter", () => {
+            let ModalHTML = '';
+
+            if (!isLoaded) { fetch('https://api.themoviedb.org/3/genre/movie/list?language=ko', options)
+                .then(res => res.json())
+                .then(res => res.genres)
+                .then(re => {
+                    console.log(re)
+                    re.forEach((r) => {
+                        ModalHTML += `
+                            <div onclick="location.href='../test/13_genresTest.html?genres=${r.id}'">
+                                ${r.name}
+                            </div>
+                        `
+                    })
+
+                    genresModal.innerHTML = ModalHTML;
+                    isLoaded = true;
+                })
+                .catch(err => console.error(err));
+
+        }})
+
+        
+
+
+
+        // detail test
+
+        const btn = document.querySelector(".button");
+        const div = document.querySelector(".detail");
+        const posterUrl = "https://image.tmdb.org/t/p/";
+
+
+        const paginations = (page) => {
+            btn.innerHTML = '';
+
+    
+            fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=ko-KR&page=${page}&region=KR&sort_by=popularity.desc`, options)
+                .then(res => res.json())
+                .then(res => res.results)
+                .then(res => 
+                    res.map((r) => {
+                        btn.innerHTML += `<button onclick="goToDetail(${r.id})">${r.title}</button>`
+                    }))
+                .catch(err => console.error(err));
+            }
+            
+            const goToDetail = (movieID) => {
+
+                div.innerHTML = '';
+
+                fetch(`https://api.themoviedb.org/3/movie/${movieID}?append_to_response=credits%2Cvideos%2Cimages&language=ko-KR`, options)
+                    .then(res => res.json())
+                    .then(res => {
+
+                        const companyName = res.production_companies?.[0]?.name || "정보 없음";
+                        const companyLogo = res.production_companies?.[0]?.logo_path ? `<img src='${posterUrl}w200/${res.production_companies[0].logo_path}'>` : '';
+                        
+                        const cast0 = res.credits?.cast?.[0];
+                        const cast1 = res.credits?.cast?.[1];
+
+                        div.innerHTML += `<div style='font-size:30px; font-weight:bold'>${res.title}</div>`
+                        div.innerHTML += `<div style='font-size:20px; font-weight:bold'>${res.original_title}</div>`
+                        div.innerHTML += `<div><img src='${posterUrl}w400/${res.backdrop_path}'></div>`
+                        div.innerHTML += `<div><img src='${posterUrl}w400/${res.poster_path}'></div>`
+                        div.innerHTML += `<div>▶ ${res.overview}</div>`
+                        div.innerHTML += `<div>트렌드 지수: ${res.popularity}</div>`
+                        div.innerHTML += `<div>제작사: ${companyName}</div>`
+                        div.innerHTML += `<div>${companyLogo}</div>`
+                        
+                        if(cast0) {
+                            div.innerHTML += `<div>배우1: ${cast0.name}</div>`
+                            div.innerHTML += `<div><img src='${posterUrl}w200/${cast0.profile_path}'></div>`
+                        }
+                        if(cast1) {
+                            div.innerHTML += `<div>배우2: ${cast1.name}</div>`
+                            div.innerHTML += `<div><img src='${posterUrl}w200/${cast1.profile_path}'></div>`
+                        }
+                    })
+                    .catch(err => console.error(err));
+            } 
+    </script>
+</body>
+</html>

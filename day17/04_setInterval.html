@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval</title>
+</head>
+<body>
+    <h1>setInterval(callback function, interval duration)</h1>
+    <h4>: duration 주기로 callback function 호출</h4>
+    <hr>
+    <button id="start"> start </button>
+    <button id="stop"> stop </button>
+    <h3 id="result">setInterval</h3>
+
+    <script>
+        let intervalObj;
+        let count = 0;
+
+        document.querySelector("#start").addEventListener('click', () => {
+            intervalObj = setInterval(() => {
+                count++
+                document.querySelector("#result").innerText = count;
+            }, 1000)
+        });
+
+        document.querySelector("#stop").addEventListener('click', () => {
+            clearTimeout(intervalObj);
+        })
+    </script>
+</body>
+</html>

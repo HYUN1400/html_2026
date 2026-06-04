@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popup</title>
+</head>
+<body>
+    <h1>popup</h1>
+    <!-- 
+        alert() / prompt(): input / comfirm(): 확인/최소
+        window.open('url', 'windowName', option(size, scroll));
+        window.close();
+    -->
+    <button onclick="openWindow()">팝업 열기</button>
+    <button onclick="closeWindow()">팝업 닫기</button>
+    <button onclick="alert('alert');">alert</button>
+    <button onclick="promptWindow()">prompt</button>
+    <button onclick="confirmWindow()">confirm</button>
+
+    <h3 id="h3"></h3>
+    
+    <script>
+        let popup;
+        const h3 = document.querySelector("#h3");
+
+        const openWindow = () => {
+            popup = window.open('01_BOM.html', 'mypop', 'width:=400, height=500');
+        }
+
+        const closeWindow = () => {
+            if(!popup) {
+                return;
+            } else if(popup){
+                popup.close();
+            }
+        }
+
+        const promptWindow = () => {
+            let input = prompt('prompt');
+            h3.innerText = input;
+        }
+
+        const confirmWindow = () => {
+            confirm('Confirm?');
+        }
+    </script>
+</body>
+</html>

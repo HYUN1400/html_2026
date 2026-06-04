@@ -1,0 +1,163 @@
+.container {
+    margin-bottom: 60px;
+}
+
+.collections-box {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.collections-title {
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
+
+    margin-bottom: 60px;
+}
+
+.collections-title img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.collections {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.col-sub {
+    font-size: 16px;
+    color: #959595;
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+.collections .col-top, .collections .col-bottom {
+    width: 90%;
+    display: flex;
+    gap: 40px;
+}
+
+
+.collections .col-top > div, .collections .col-bottom > div{
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+
+    cursor: pointer;
+
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.7));
+
+    transition: 0.2s ease;
+}
+
+.collections .col-top > div:hover, .collections .col-bottom > div:hover {
+    transform: translateX(10px);
+}
+
+.marvel {
+    background-image: url(../resource/img/Marvel_Logo.png);
+    background-size: 50%;
+}
+
+.harrypotter {
+    background-image: url(../resource/img/Harry-potter-Logo.png);
+    background-size: 60%;
+}
+
+.fastandfurious {
+    background-image: url(../resource/img/Fast_&_furious-logo.png);
+    background-size: 60%;
+}
+
+.starwars {
+    background-image: url(../resource/img/Star_Wars_Yellow_Logo.png);
+    background-size: 40%;
+    
+}
+
+.dc_universe {
+    background-image: url(../resource/img/DC_Comics_logo.png);
+    background-size: 20%;
+}
+
+.lordoftherings {
+    background-image: url(../resource/img/lords_of_the_rings_logo.png);
+    background-size: contain;
+}
+
+.johnwick {
+    background-image: url(../resource/img/john_wick_logo.png);
+    background-size: contain;
+}
+
+.missionimpossible {
+    background-image: url(../resource/img/mission_impossible_logo.png);
+    background-size: 80%;
+}
+
+.jamesbond {
+    background-image: url(../resource/img/007_logo.png);
+    background-size: 40%;
+}
+
+.matrix {
+    background-image: url(../resource/img/matrix_logo.png);
+    background-size: 60%;
+}
+
+/* details */
+
+.inventory {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    
+    gap: 20px 30px; 
+    
+    justify-content: flex-start;
+    align-content: flex-start; 
+}
+
+.inv-elements {
+    flex: 0 0 auto;
+    width: calc((100% - (30px * 4)) / 5);
+    min-width: 150px;
+    
+    margin-bottom: 0; 
+    transition: transform 0.3s ease;
+    
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.inv-elements img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+.inv-elements:hover {
+    transform: scale(1.1);
+}
+

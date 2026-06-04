@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>element</title>
+</head>
+<body>
+    <h1>element</h1>
+    <!-- 
+        let str += ''; => `<li>${value}</li>` => innerHTML 추가
+        createElemnet : element 생성 
+        appendchild : 대상 element의 자식으로 삽입
+    -->
+
+    <button id="btn01">리스트 추가(CreateElement)</button>
+    <button id="btn02">리스트 추가(STR)</button>  
+    <ul id="ul"></ul>
+    <hr>
+    <button id="btn03">리스트 하나씩 추가(CreateElement)</button>
+    <button id="btn04">리스트 하나씩 추가(STR)</button>
+    <ol id="ol"></ol>
+
+    <script>
+        const datas = ['HTML', 'CSS', 'JS', 'SQL', 'JAVA'];
+        const ul = document.querySelector("#ul");
+        const btn01 = document.querySelector("#btn01");
+        const btn02 = document.querySelector("#btn02");
+
+        // 한번 클릭에 하나씩 추가
+
+        const btn03 = document.querySelector("#btn03");
+        const btn04 = document.querySelector("#btn04");
+        const ol = document.querySelector("#ol");
+        let count = 0;
+
+        btn03.addEventListener('click', () => {
+            // if(count == datas.length){
+            //     return;
+            // }
+            // let li = document.createElement('li');
+            // li.innerText = datas[count];
+            // count++;
+            // ol.appendChild(li);
+
+            let str = datas.shift();
+
+            if(str != undefined){
+                let li = document.createElement('li');
+                li.textContent = str;
+                ol.appendChild(li);
+            }
+
+        })
+
+        btn04.addEventListener('click', () => {
+            if(count == datas.length){
+                return;
+            }
+
+            let str = '';
+            
+            str = `<li>${datas[count]}</li>`
+            count++;
+
+            ol.innerHTML += str;
+        })
+
+        // 
+
+        btn02.addEventListener('click', () => {
+            let str = '';
+
+            datas.map((v) => {
+                str += `<li>${v}</li>`
+                ul.innerHTML = str;
+            })
+        })
+
+        btn01.addEventListener('click', () => {
+            ul.innerHTML = '';
+
+            datas.map((v) => {
+                let li = document.createElement('li'); // <li></li> 생성
+                li.textContent = v;
+                ul.appendChild(li);
+            })
+        })
+        
+    </script>
+</body>
+</html>

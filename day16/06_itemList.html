@@ -87,13 +87,19 @@
         const listMap = new Map();
         let count = 0;
 
+        input.addEventListener("keydown", () => {
+            if(event.key === "Enter"){
+                addList();
+            }
+        })
+
         const render = () => {
             itemlist.innerHTML = '';
 
             let itemlistStr = '';
 
             listMap.forEach((v, k) => {
-                itemlistStr += `<li><span>${v}</span><button class="dl" onclick="deleteList(${k})">❌</button></li>`;
+                itemlistStr += `<li draggable="true"><span>${v}</span><button class="dl" onclick="deleteList(${k})">❌</button></li>`;
             })
             itemlist.innerHTML = itemlistStr;
         }

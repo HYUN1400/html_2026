@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location</title>
+</head>
+<body>
+    <h1>location</h1>
+    <h4>: 브라우저의 주소표시줄 입력과 관련된 객체</h4>
+    <!-- 
+        window.location / window 생략 가능
+        - location.href = "url" => url로 이동 => history 객체에 저장
+        - location.replace('url') => url로 이동 => history 객체에 저장하지 않음
+        - location.reload() : 현재 페이지에서 새로고침
+    -->
+    <!-- 
+        history 객체: 브라우저가 저장하고 있는 방문페이지의 기록을 관리하는 객체
+            이전 / 다음
+            history.back() / history.forward()
+            history.go(n) : n번째 페이지로 이동 go(-2) => 두 페이지 전 
+    -->
+    <button onclick="location.href='http://naver.com'">href</button>
+    <button onclick="location.replace('http://naver.com')">replace</button>
+    <button onclick="location.reload()">reload</button>
+
+    <script>
+
+    </script>
+</body>
+</html>

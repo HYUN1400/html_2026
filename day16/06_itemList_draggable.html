@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Drag and Drop</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            user-select: none; /* 드래그할 때 글자 블록 잡히는 것 방지 */
+        }
+
+        button {
+            width: 50px; height: 30px; border-radius: 5px; border: none;
+            box-shadow: 1px 1px 6px #cdcdcd; background-color: white; margin-left: 10px;
+        }
+        button:hover { cursor: pointer; background-color: #f3f3f3; }
+        .dl { width: 30px; height: 20px; font-size: 10px; }
+        input { box-sizing: border-box; height: 30px; }
+        
+        ul {
+            padding: 0;
+            list-style: none;
+            position: relative; /* 자식 li들의 absolute 기준점이 됨 */
+        }
+
+        ul > li {
+            display: flex;
+            width: 400px;
+            margin-bottom: 15px;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid pink;
+            padding-bottom: 10px;
+            background-color: white; /* 뒤가 비치지 않게 배경색 지정 */
+            box-sizing: border-box;
+            cursor: grab; /* 잡을 수 있다는 표시 */
+        }
+
+        ul > li > button { margin-left: auto; }
+        ul > li::before { content: "□"; font-weight: bold; margin: 5px 10px; font-size: 12px; color: pink; }
+
+        /* 💡 드래그 중인 아이템에 줄 화려한 스타일링! */
+        ul > li.dragging {
+            cursor: grabbing;
+            opacity: 0.9;
+            box-shadow: 0 5px 15px rgba(255, 182, 193, 0.6);
+            border: 1px solid pink;
+            border-radius: 5px;
+            z-index: 9999; /* 다른 아이템들보다 무조건 위에 둥둥 뜨게 함 */
+        }
+    </style>
+</head>
+<body>
+    <h1>✈️ 여행 준비물 점검 목록 (커스텀)</h1>
+    <div>
+        <input type="text" class="item">
+        <button type="button" onclick="addList()">추가</button>
+    </div>
+    <div>
+        <ul class="itemlist"></ul>
+    </div>
+
+    <script>
+        const input = document.querySelector("input");
+        const itemlist = document.querySelector(".itemlist");
+        let listMap = new Map(); 
+        let count = 0;
+
+        input.addEventListener("keydown", (event) => {
+            if(event.key === "Enter") addList();
+        });
+
+        // 장부 갱신 함수
+        const updateMapOrder = () => {
+            const currentList = itemlist.querySelectorAll("li");
+            const newMap = new Map();
+            currentList.forEach((item) => {
+                const key = parseInt(item.getAttribute("data-key"));
+                const value = item.querySelector("span").innerText;
+                newMap.set(key, value);
+            });
+            listMap = newMap;
+        };
+
+        // 💡 핵심: 커스텀 마우스 드래그 로직
+        const addDragEvents = () => {
+            const listItems = itemlist.querySelectorAll("li");
+
+            listItems.forEach((item) => {
+                // 마우스로 아이템을 꾹 누를 때 (mousedown)
+                item.addEventListener("mousedown", (e) => {
+                    // 삭제 버튼 클릭 시 드래그 방지
+                    if (e.target.classList.contains('dl')) return;
+
+                    let draggingItem = item;
+                    draggingItem.classList.add("dragging");
+
+                    // 1. 클릭한 순간 마우스 포인터와 리스트 아이템 내부 간의 거리(오프셋) 계산
+                    const box = draggingItem.getBoundingClientRect();
+                    const shiftY = e.clientY - box.top;
+
+                    // 2. 둥둥 띄우기 위해 처음에 딱 한번 마우스 위치로 absolute 좌표 잡아주기
+                    draggingItem.style.position = 'absolute';
+                    draggingItem.style.width = '400px';
+                    moveAt(e.clientY);
+
+                    // 리스트 아이템을 마우스 Y축 좌표에 맞춰 이동시키는 함수
+                    function moveAt(clientY) {
+                        // 부모인 ul 태그의 시작 높이를 빼주어야 정확한 absolute top 값이 계산됩니다.
+                        const listTop = itemlist.getBoundingClientRect().top;
+                        draggingItem.style.top = (clientY - listTop - shiftY) + 'px';
+                    }
+
+                    // 3. 마우스를 움직이는 동안 (mousemove)
+                    function onMouseMove(e) {
+                        moveAt(e.clientY); // 마우스 따라다니기
+
+                        // 마우스 위치에 있는 다른 li 요소를 찾아서 실시간 위치 스왑
+                        const siblings = [...itemlist.querySelectorAll("li:not(.dragging)")];
+                        const nextSibling = siblings.find(sibling => {
+                            const sBox = sibling.getBoundingClientRect();
+                            return e.clientY <= sBox.top + sBox.height / 2;
+                        });
+
+                        // HTML 구조 변경 (새치기하기)
+                        if (nextSibling) {
+                            itemlist.insertBefore(draggingItem, nextSibling);
+                        } else {
+                            // 마우스가 맨 아래면 맨 뒤로 붙이되, 드래그 중인 absolute 아이템은 제외하고 붙여야 하므로 appendChild를 조심히 씁니다.
+                            itemlist.appendChild(draggingItem);
+                        }
+                    }
+
+                    // 마우스 이동 이벤트를 전체 화면(document)에 등록해야 마우스를 빨리 움직여도 안 놓쳐요!
+                    document.addEventListener("mousemove", onMouseMove);
+
+                    // 4. 마우스를 뗄 때 (mouseup) -> 완전히 종료 처리
+                    document.addEventListener("mouseup", function onMouseUp() {
+                        document.removeEventListener("mousemove", onMouseMove);
+                        document.removeEventListener("mouseup", onMouseUp); // 메모리 누수 방지용 본인 삭제
+
+                        // 드래그 종료 후 스타일 리셋 (다시 일반 리스트 흐름으로 복귀)
+                        draggingItem.classList.remove("dragging");
+                        draggingItem.style.position = '';
+                        draggingItem.style.top = '';
+                        draggingItem.style.width = '';
+
+                        updateMapOrder(); // 최종 바뀐 순서대로 장부 정리
+                    });
+                });
+            });
+        };
+
+        const render = () => {
+            itemlist.innerHTML = '';
+            let itemlistStr = '';
+            listMap.forEach((v, k) => {
+                itemlistStr += `<li data-key="${k}"><span>${v}</span><button class="dl" onclick="deleteList(${k})">❌</button></li>`;
+            });
+            itemlist.innerHTML = itemlistStr;
+            addDragEvents(); // 렌더링 후 커스텀 이벤트 바인딩
+        };
+        
+        const addList = () => {
+            if((input.value).trim() == '') return;
+            count++;
+            listMap.set(count, input.value);
+            render();
+            input.value = '';
+        };
+
+        const deleteList = (key) => {
+            listMap.delete(key);
+            render();
+        };
+    </script>
+</body>
+</html>

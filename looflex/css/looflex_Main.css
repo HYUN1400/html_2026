@@ -1,0 +1,219 @@
+/* CONTAINER */
+
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+
+/* SLIDE_BANNER */
+
+.slide-box {
+    width: 100%;
+    position: relative;
+}
+
+.slide-box .buttons > .button{
+    filter: invert(100) drop-shadow(2px 3px 4px rgba(0,0,0,0.8));
+    position: absolute;
+
+    top: 45%;
+
+    z-index: 80;
+
+    cursor: pointer;
+}
+
+.slide-box .buttons > .button.left {
+    left: 30px;
+}
+
+.slide-box .buttons > .button.right {
+    right: 30px;
+}
+
+.slide-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden; 
+    border-radius: 5px;
+
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+}
+
+.slide-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* 부드러운 전환 효과 추가 */
+    width: 100%;
+}
+
+.slide-img {
+    min-width: 100%;
+    aspect-ratio: 16 / 6;
+    display: flex;
+    align-items: center;
+
+    position:relative;
+
+    transition: 0.4s ease;
+}
+
+.slide-img:hover{
+    cursor: pointer;
+    scale: calc(1.01);
+}
+
+.slide-inner-text {
+    position: absolute;
+    color: white;
+    left: 50px;
+    bottom: 50px;
+}
+
+.slide-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+
+    border: 3px solid white;
+    padding: 5px 10px;
+
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+.slide-original-title{
+    margin-top: 6px;
+    font-family: 'BonmyeongjoSourceHanSerif';
+    font-size: 14px;
+    font-weight: 500;
+
+    text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.5);
+}
+
+/* MOVIES */
+
+.now-playing-box .box-title {
+    color: #F6F6F6;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+}
+
+.now-playing-box .box-title > img {
+    width: 20px;
+    margin-right: 10px;
+
+    filter: invert(100);
+}
+
+.movies {
+    width: 100%;
+    aspect-ratio: 16 / 5;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    overflow: visible;
+}
+
+.movies > .movie {
+    width: calc((100% - (20px * 4)) / 5);
+    height: auto;
+    /* border: 1px solid rgb(0, 255, 251); */
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    gap: 13px;
+}
+
+.movies > .movie:hover {
+    width: calc(((100% - (20px * 4)) / 5) * 1.1); 
+    transform: scale(1.05);
+    
+    z-index: 10;
+}
+
+.movies > .movie > .movie-poster {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+}
+
+.movies > .movie > .movie-poster:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* LINKS */
+
+.links-box {
+    margin-top: 15px;
+
+    display: flex;
+    align-items: center;
+    
+    background: linear-gradient(to right, #0047e2, #FF7702);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.links {
+    width: 100%;
+    aspect-ratio: 16 / 1.1;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+
+    margin: 30px 0px 30px 0px;
+}
+
+.links > .link {
+    width: calc(100%/6);
+    aspect-ratio: 7 / 2;
+    background-size: 40%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    
+    border-radius: 50px;
+    
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+
+    transition: 0.2s ease;
+}
+
+.links > .link:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 1);
+}
+
+.link.marvel {
+    background-image: url(../resource/img/Marvel_Logo.png);
+}
+
+.link.star-wars {
+    background-image: url(../resource/img/Star_Wars_Yellow_Logo.png);
+}
+
+.link.harry-potter {
+    background-image: url(../resource/img/Harry-potter-Logo.png);
+}
+
+.link.fast-furious {
+    background-image: url(../resource/img/Fast_&_furious-logo.png);
+}

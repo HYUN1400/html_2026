@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+</head>
+<body>
+    <h1>event</h1>
+    <!-- 
+        마우스 이벤트: click, input, change, mouseover, scroll ...
+        키보드 이벤트: keyDown, keyPress, keyUp ...
+        기타 이벤트: submit, reset ...
+
+        addEventListener('eventName', callback function);
+        : 메서드를 통해 구현하는 것을 권장
+        => 하나의 객체에 이벤트 중복 부여 가능
+    -->
+
+    <div>
+        <img style="width: 50%;" src="../resource/hollowknight_2.JPG" alt="" id="pic">
+    </div>
+
+    <script>
+        const pic = document.querySelector("#pic");
+
+        pic.addEventListener('mouseover', () => {
+            pic.src = '../resource/hollowknight_3.JPG'
+        });
+        pic.addEventListener('mouseout', () => {
+            pic.src = '../resource/hollowknight_2.JPG'
+        })
+    </script>
+</body>
+</html>

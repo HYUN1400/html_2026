@@ -1,0 +1,111 @@
+.container {
+    margin-bottom: 60px;
+}
+
+.all-movies {
+    box-sizing: border-box;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.inventory {
+    width: 100%; 
+    margin: 0 auto;
+    
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    
+    justify-content: flex-start; 
+}
+
+.inv-elements {
+    flex: 0 0 auto; 
+
+    width: calc((100% - (30px * 4)) / 5); 
+    min-width: 150px;
+
+    transition: transform 0.3s ease;
+}
+
+.inv-elements > img {
+    width: 100%; 
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.3);
+
+    cursor: pointer;
+}
+
+.inv-elements:hover {
+    transform: scale(1.1);
+}
+
+.all-title {
+    font-size: 30px;
+    color: white;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
+}
+
+.all-title > img {
+    margin-right: 10px;
+    width: 32px;
+}
+
+.all-sub {
+    font-size: 16px;
+    color: #959595;
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #959595;
+
+    margin-bottom: 20px;
+}
+
+/* button */
+
+.pagination {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.pagination > button {
+    box-sizing: border-box;
+    border: none;
+    padding: 0;
+
+    width: 32px;
+    height: 32px;
+    
+    border-radius: 5px;
+
+    background-color: #20232cf6;
+
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
+
+    color: white;
+
+    transition: 0.2s ease;
+}
+
+.pagination > button:hover {
+    background-color: #0088FD;
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(255, 255, 255);
+        }
+        .container{
+            width: 300px;
+            background-color: rgb(243, 243, 243);
+            box-shadow: inset 2px 2px 8px #e1e1e1, -2px -2px 8px #ffffff;
+            /* 화면의 정중앙에 위치*/
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            text-align: center;
+            border-radius: 10px;
+            padding: 20px 30px;
+        }
+        .container input{
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+        }
+        .container button{
+            background-color: rgb(173, 213, 232);
+            box-sizing: border-box;
+            font-weight: 700;
+            font-size: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            height: 30px;
+        }
+
+        .container button:hover{
+            box-shadow: inset 2px 2px 8px rgb(138, 177, 195), -2px -2px 8px #ffffff;
+        }
+
+        .container input:focus {
+            outline: 1px solid rgb(1, 150, 191);
+        }
+
+        .container>.link{
+            margin-top: 30px;
+        }
+        .container>.link>a{
+            color: rgb(1, 150, 191);
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .container>.link>a:hover{
+            text-decoration: underline;
+        }
+
+        form {
+            position: relative;
+        }
+
+        form > div {
+            font-size: 11px;
+            margin-bottom: 5px;
+            position: absolute;
+            left: 10px;
+            color: red;
+        }
+
+        form > div:nth-of-type(1) {
+            top: 38px;
+        }
+
+        form > div:nth-of-type(2) {
+            top: 94px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="" id="form">
+            <input type="text" name="id" placeholder="아이디" id="id">
+            <div class="idWarning"></div>
+            <input type="password" name="pw" placeholder="비밀번호" id="pw">
+            <div class="passWarning"></div>
+            <button disabled>로그인</button>
+        </form>
+        <div class="link">
+            <a href="">비밀번호를 잊어버리셨나요?</a>
+        </div>
+    </div>
+
+    <script>
+        const id = document.querySelector("#id");
+        const pw = document.querySelector("#pw");
+        const btn = document.querySelector("button");
+        const idWarning = document.querySelector(".idWarning");
+        const passWarning = document.querySelector(".passWarning");
+
+        let isId = false;
+        let isPw = false;
+
+        const idRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+
+        const checkState = () => {
+            if(isId && isPw){
+                btn.disabled = false;
+            } else {
+                btn.disabled = true;
+            }
+        }
+
+        id.addEventListener("input", (e) => {
+            if(idRegex.test(e.target.value)){
+                isId = true;
+                idWarning.innerText = '';
+            } else {
+                isId = false;
+                idWarning.innerText = '영어, 숫자를 포함해 6자리 이상으로 작성해주세요'
+            }
+
+            checkState();
+        })
+
+        pw.addEventListener("input", (e) => {
+            if(passwordRegex.test(e.target.value)){
+                isPw = true;
+                passWarning.innerText = '';
+            } else {
+                isPw = false;
+                passWarning.innerText = '영어, 숫자, 특수문자를 포함해 8자리 이상으로 작성해주세요';
+            }
+
+            checkState();
+        })
+
+       const form = document.querySelector("#form");
+       
+       form.addEventListener("submit", (e) => {
+            e.preventDefault(); // 폼 제출 시 새로고침 방지
+
+            const formValue = new FormData(form);
+            const dataObject = Object.fromEntries(formValue);
+            localStorage.setItem("user", JSON.stringify(dataObject));
+
+            console.log("로컬스토리지 저장 완료")
+       })
+
+       const savedUser = localStorage.getItem("user");
+
+        if (savedUser) {
+            const userObj = JSON.parse(savedUser);
+            
+            console.log(userObj.id); 
+            console.log(userObj.pw); 
+        }
+
+    </script>
+</body>
+</html>
